@@ -4,7 +4,7 @@
 $servername = "localhost"; //server
 $username = "root"; //username
 $password = ""; //password
-$dbname = "jrmsudts";  //database
+$dbname = "fellazardb";  //database
 
 
 // Create connection

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>JRMSU IPCR - Login</title>
+    <title>Fellazar Optical Clinic</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,11 +26,11 @@ error_reporting(0); // hide undefine index errors
 session_start(); // temp sessions var_dump($_SESSION["email"]);
 if (isset($_POST['submit']))   // if button is submit
 {
-    $email = $_POST['email'];  //fetch records from login form
+    $username = $_POST['username'];  //fetch records from login form
     $pass = $_POST['password'];
     if (!empty($_POST["submit"]))   // if records were not empty
     {
-        $loginquery = "SELECT * FROM user WHERE user_email='$email' && user_password='$pass'"; //selecting matching records
+        $loginquery = "SELECT * FROM admin WHERE adminUsername='$username' && adminPassword='$pass'"; //selecting matching records
         $result = mysqli_query($db, $loginquery); //executing
         // var_dump($result);
         $row = mysqli_fetch_assoc($result);
@@ -39,9 +39,7 @@ if (isset($_POST['submit']))   // if button is submit
         if (is_array($row))  // if matching records in the array & if everything is right
         {
 
-            $_SESSION["email"] = $row['user_email']; // put user id into temp session
-            $_SESSION["user_id"] = $row['user_id'];
-            $_SESSION["office_id"] = $row['office_id'];
+            $_SESSION["adminUsername"] = $row['adminUsername']; // put user id into temp session
             header("Location:index.php"); // redirect to index.php page
 
         } else {
@@ -68,12 +66,12 @@ if (isset($_POST['submit']))   // if button is submit
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">LOGIN YOUR IPCR ACCOUNT</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">LOGIN ACCOUNT</h1>
                                         <?php echo $message ?>
                                     </div>
                                     <form class="user" action="" method="post">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email">
+                                            <input type="text" class="form-control form-control-user" placeholder="Username" name="username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
@@ -82,16 +80,9 @@ if (isset($_POST['submit']))   // if button is submit
                                         <input type="submit" class="btn btn-primary btn-user btn-block" id="buttn" name="submit" value="Login" />
 
                                     </form>
-                                    <hr>
+                                  
 
-                                    <div class="text-center">
-                                        <a href="rater/login-rater.php" class="btn btn-success btn-icon-split btn-sm">
-                                            <span class="text">Login Rater</span>
-                                        </a>
-                                        <a href="admin/login-admin.php" class="btn btn-success btn-icon-split btn-sm">
-                                            <span class="text">Login Admin</span>
-                                        </a>
-                                    </div>
+                   
 
                                 </div>
                             </div>

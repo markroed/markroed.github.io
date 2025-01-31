@@ -1,47 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <?php
 include("connection/connect.php");  //include connection file
 error_reporting(0);  // using to hide undefine undex errors
 session_start(); //start temp session until logout/browser closed
 date_default_timezone_set('Asia/Manila');
-$useremail = $_SESSION["email"];
-$useroffice = $_SESSION["office_id"];
-$userid = $_SESSION["user_id"];
-if (!isset($_SESSION['email']) || $_SESSION['email'] == '' || empty($_SESSION['email']) || $_SESSION['email'] == null) {
+$adminUsername = $_SESSION["adminUsername"];
+if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || empty($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == null) {
     echo "<script> window.location.replace('login.php') </script>";
 } else {
 ?>
+    <?php include 'pages/header.php'; ?>
 
-    <head>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>JRMSU IPCR</title>
-
-        <!-- Custom fonts for this template-->
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-        <!-- Custom styles for this template-->
-        <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    </head>
 
     <body id="page-top">
 
         <!-- Page Wrapper -->
         <div id="wrapper">
 
-            <!-- Sidebar -->
-
             <?php include 'pages/sidebar.php'; ?>
-            <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
@@ -49,9 +26,11 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' || empty($_SESSION['e
                 <!-- Main Content -->
                 <div id="content">
 
-                    <!-- Topbar -->
-                    <?php include 'pages/header.php'; ?>
-                    <!-- End of Topbar -->
+
+
+                    <!-- Begin TopBar Content -->
+                    <?php include 'pages/topbar.php'; ?>
+                    <!-- End TopBar Content -->
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
@@ -59,149 +38,185 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' || empty($_SESSION['e
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-
+                            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                         </div>
 
-                        
-                        <!-- Start Page Content -->
+                        <!-- Content Row -->
                         <div class="row">
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary"> Pending Documents</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="col mr-2">
-                                        
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php
-                                                $sql_my_docs = "SELECT tracking_number.tracking_number,document.document_id,document.document_title,document.document_datecreated,type.document_type_name,for_action.for_action_name,transaction_history.office_id,transaction_history.transaction_datetime,transaction_history.latest_status_id FROM tracking_number,document,type,for_action,transaction_history WHERE document.tracking_number_id = tracking_number.tracking_number_id AND document.document_type_id = type.document_type_id AND document.for_action_id = for_action.for_action_id AND transaction_history.office_id = $useroffice and transaction_history.transaction_datetime = (select max(transaction_history.transaction_datetime) from transaction_history where document.document_id = transaction_history.document_id) AND (transaction_history.latest_status_id = 2 OR transaction_history.latest_status_id = 3 OR transaction_history.latest_status_id = 4)";
-                                                $query_my_docs = mysqli_query($db, $sql_my_docs);
 
-                                                $pending =  mysqli_num_rows($query_my_docs);
-                                                ?>
-                                                <h5><?php echo $pending; ?></h5>
-                                            </div> <br>
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                   Number of Clients (Total)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">1,897</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <br>
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Track Documents</h6>
-                                    </div>
-                                    <div class="card-body">
 
-                                        <form action="document-history.php" method="get">
-                                            <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="Enter Tracking Number" aria-label="Enter Tracking Number" aria-describedby="basic-addon2" name="trackingnumber">
-                                                <div class="input-group-append">
-                                                    <input type="submit" class="btn btn-primary" id="buttn" name="track" />
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Number of Clients (Today)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Appointment (Today)
+                                                </div>
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">5</div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="progress progress-sm mr-2">
+                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                            <div class="col-auto">
+                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pending Requests Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    All Appointments</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <br>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Receive Documents</h6>
-                                    </div>
-                                    <div class="card-body">
-                                       <form action="document-history.php" method="get">
-                                            <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="Enter Tracking Number" aria-label="Enter Tracking Number" name="trackingnumber" aria-describedby="basic-addon2">
-                                                <div class="input-group-append">
-                                                    <input type="submit" class="btn btn-primary" id="buttn" name="receive" />
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Release Documents</h6>
-                                    </div>
-                                    <div class="card-body">
-                                    <form action="release-document.php" method="get">
-                                            <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="Enter Tracking Number" aria-label="Enter Tracking Number" name="trackingnumber" aria-describedby="basic-addon2">
-                                                <div class="input-group-append">
-                                                    <input type="submit" class="btn btn-primary" id="buttn" name="release" />
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <br>
-                        <div class="row">
-                            <!-- <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Tag as Terminal</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <form action="" method="post">
-                                            <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="Enter Tracking Number" aria-label="Enter Tracking Number" aria-describedby="basic-addon2">
-                                                <div class="input-group-append">
-                                                    <input type="submit" class="btn btn-primary" id="buttn" name="tag" value="   Tag    " />
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Add Document</h6>
-                                    </div>
-                                    <div class="card-body">
-
-                                        <form action="add-document.php" method="get">
-                                            <div class="input-group mb-3">
-
-                                                <?php
-                                                // SELECT Tracking number. Latest unused
-                                                // $sql_tracking_number_main = "select * FROM `tracking_number` WHERE user_id = $userid AND status_id = 0 ORDER BY `tracking_number_id` ASC LIMIT 1";
-                                                // $tracking_main = mysqli_query($db, $sql_tracking_number_main);
-                                                // $row_track_main = mysqli_fetch_array($tracking_main);
-                                                $datetimetracking = date('Ymd-His');
-                                                $tracking_number_main = $useroffice . '-' . $datetimetracking;
-
-                                                ?>
-
-                                                <input type="text" class="form-control" placeholder=<?php echo $tracking_number_main; ?> aria-label="Enter Tracking Number" aria-describedby="basic-addon2" name="trackingnumber" value=<?php echo $tracking_number_main; ?> readonly >
-                                                <div class="input-group-append">
-                                                    <input type="submit" class="btn btn-primary" id="buttn" name="add"  />
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <!-- Close Page Content -->
 
                         <!-- Content Row -->
 
+                        <!-- <div class="row"> -->
+
+                            <!-- Area Chart -->
+                            <!-- <div class="col-xl-8 col-lg-7">
+                                <div class="card shadow mb-4"> -->
+                                    <!-- Card Header - Dropdown -->
+                                    <!-- <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Dropdown Header:</div>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- Card Body -->
+                                    <!-- <div class="card-body">
+                                        <div class="chart-area">
+                                            <canvas id="myAreaChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!-- Pie Chart -->
+                            <!-- <div class="col-xl-4 col-lg-5">
+                                <div class="card shadow mb-4"> -->
+                                    <!-- Card Header - Dropdown -->
+                                    <!-- <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                                aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Dropdown Header:</div>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- Card Body -->
+                                    <!-- <div class="card-body">
+                                        <div class="chart-pie pt-4 pb-2">
+                                            <canvas id="myPieChart"></canvas>
+                                        </div>
+                                        <div class="mt-4 text-center small">
+                                            <span class="mr-2">
+                                                <i class="fas fa-circle text-primary"></i> Direct
+                                            </span>
+                                            <span class="mr-2">
+                                                <i class="fas fa-circle text-success"></i> Social
+                                            </span>
+                                            <span class="mr-2">
+                                                <i class="fas fa-circle text-info"></i> Referral
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- Content Row -->
+                        <div class="row">
+
+                            <!-- Content Column -->
+                            <div class="col-lg-6 mb-4">
+
+        
+
+                            </div>
+                        </div>
 
                     </div>
                     <!-- /.container-fluid -->
@@ -225,10 +240,10 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' || empty($_SESSION['e
             <i class="fas fa-angle-up"></i>
         </a>
 
+
         <!-- Logout Modal-->
         <?php include 'pages/logoutmodal.php'; ?>
         <!-- Logout Modal-->
-
 
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -250,4 +265,5 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] == '' || empty($_SESSION['e
     </body>
 
 </html>
+
 <?php } ?>
