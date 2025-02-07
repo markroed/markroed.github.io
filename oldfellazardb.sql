@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 04, 2025 at 09:12 AM
+-- Generation Time: Feb 07, 2025 at 09:03 AM
 -- Server version: 10.6.5-MariaDB
--- PHP Version: 7.4.26
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS `finalprescriptions` (
   `osPh` varchar(50) DEFAULT NULL,
   `addFirst` varchar(50) DEFAULT NULL,
   `addFirstNVA` varchar(50) DEFAULT NULL,
+  `addSecond` varchar(50) NOT NULL,
   `addSecondNVA` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`prescriptionId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -133,6 +134,41 @@ CREATE TABLE IF NOT EXISTS `lenstypes` (
   `lensName` varchar(255) NOT NULL,
   PRIMARY KEY (`lensTypeId`),
   UNIQUE KEY `lensName` (`lensName`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oldrx`
+--
+
+DROP TABLE IF EXISTS `oldrx`;
+CREATE TABLE IF NOT EXISTS `oldrx` (
+  `oldRXId` int(11) NOT NULL AUTO_INCREMENT,
+  `oldRXDate` date NOT NULL,
+  `patientId` int(11) NOT NULL,
+  `oldOD` varchar(255) DEFAULT NULL,
+  `oldODVA` varchar(255) DEFAULT NULL,
+  `oldOS` varchar(255) DEFAULT NULL,
+  `oldOSVA` varchar(255) DEFAULT NULL,
+  `oldADD` varchar(255) DEFAULT NULL,
+  `oldADDVA` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`oldRXId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oldtypeoflens`
+--
+
+DROP TABLE IF EXISTS `oldtypeoflens`;
+CREATE TABLE IF NOT EXISTS `oldtypeoflens` (
+  `oldTypeOfLensId` int(11) NOT NULL AUTO_INCREMENT,
+  `lensTypeId` int(11) NOT NULL,
+  `patientId` int(11) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`oldTypeOfLensId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
