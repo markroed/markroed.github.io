@@ -37,7 +37,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Client Components:</h6>
-            <a class="collapse-item" href="buttons.html">View Clients</a>
+            <a class="collapse-item" href="view-client.php">View Clients</a>
             <a class="collapse-item" href="add-client.php">Add Client</a>
         </div>
     </div>

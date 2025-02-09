@@ -37,172 +37,246 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
 
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Add Client</h1>
+
                             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                     class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                         </div>
 
                         <div class="container mt-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Add Client</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form action="process_client.php" method="POST">
 
-                            <form action="process_client.php" method="POST">
+                                        <!-- Patient Information Section -->
+                                        <h4 class="mb-3">Patient Information</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Patient Name:</label>
+                                                <input type="text" name="patient_name" class="form-control" required>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">Date:</label>
+                                                <input type="date" name="date" class="form-control">
+                                            </div>
 
-                                <!-- Patient Information Section -->
-                                <h4 class="mb-3">Patient Information</h4>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Address:</label>
+                                                <textarea name="address" class="form-control" rows="2"></textarea>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label">Age:</label>
+                                                <input type="number" name="age" class="form-control">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label">Gender:</label>
+                                                <select name="gender" class="form-control">
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-4">
+                                                <label class="form-label">Date of Birth:</label>
+                                                <input type="date" name="dob" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Contact No:</label>
+                                                <input type="text" name="contact_no" class="form-control" required>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Final Prescription -->
+                                        <h4 class="mt-4">Final Prescription</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="form-label">OD:</label>
+                                                <input type="text" name="od" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">VAsc:</label>
+                                                <input type="number" name="odVAsc" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">PH:</label>
+                                                <input type="number" name="odph" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">VAcc:</label>
+                                                <input type="number" name="odVAcc" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-6">
+                                                <label class="form-label">OS:</label>
+                                                <input type="text" name="os" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">VAsc:</label>
+                                                <input type="number" name="osVAsc" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">PH:</label>
+                                                <input type="number" name="osph" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">VAcc:</label>
+                                                <input type="number" name="osVAcc" class="form-control">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-6">
+                                                <label class="form-label">ADD:</label>
+                                                <input type="text" name="addFirst" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">N.VA</label>
+                                                <input type="number" name="addFirstNVA" class="form-control">
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="form-label"></label>
+                                                <input type="text" name="addSecond" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label"></label>
+                                                <input type="number" name="addSecondNVA" class="form-control">
+                                            </div>
+
+
+                                        </div>
+
+
+
+                                        <!-- Lens Type (Checklist) -->
+                                        <h4 class="mt-4">Lens Type</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="lens_type[]" value="SV" class="form-check-input"> SV
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="lens_type[]" value="Anti Rad" class="form-check-input"> Anti Rad
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="lens_type[]" value="MC" class="form-check-input"> MC
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="lens_type[]" value="PAL" class="form-check-input"> PAL
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="lens_type[]" value="Digital" class="form-check-input"> Digital
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Frame Type (Options) -->
+                                        <h4 class="mt-4">Frame Type</h4>
+                                        <div class="mb-3">
+                                            <select name="frame_type" class="form-control">
+                                                <option value="Metal">Metal</option>
+                                                <option value="Plastic">Plastic</option>
+                                                <option value="Full Rim">Full Rim</option>
+                                                <option value="Semi Rimless">Semi Rimless</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Contact Lens Type (Options) -->
+                                        <h4 class="mt-4">Contact Lens Type</h4>
+                                        <div class="mb-3">
+                                            <select name="contact_lens_type" class="form-control">
+                                                <option value="Dailies">Dailies</option>
+                                                <option value="Conventional">Conventional</option>
+                                                <option value="RGP">RGP</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Frame Parameters -->
+                                        <h4 class="mt-4">Frame Parameters</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label">HOR:</label>
+                                                <input type="text" name="frame_hor" class="form-control">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">VER:</label>
+                                                <input type="text" name="frame_ver" class="form-control">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">NBL:</label>
+                                                <input type="text" name="frame_nbl" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <!-- Lens Brand -->
+                                        <h4 class="mt-4">Lens Brand</h4>
+                                        <div class="mb-3">
+                                            <input type="text" name="lens_brand" class="form-control">
+                                        </div>
+
+                                        <!-- Chief Complaint (Checklist) -->
+                                        <h4 class="mt-4">Chief Complaint</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="chief_complaint[]" value="BOV" class="form-check-input"> BOV (Far/Near)
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="chief_complaint[]" value="Headache" class="form-check-input"> Headache
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Medical History (Checklist) -->
+                                        <h4 class="mt-4">Medical History</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="medical_hx[]" value="Hypertension" class="form-check-input"> Hypertension
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="medical_hx[]" value="Diabetes" class="form-check-input"> Diabetes
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit Button -->
+                                        <button type="submit" class="btn btn-primary mt-4">Add Client</button>
+
+                                    </form>
+                                </div>
+
+                                <!-- Content Row -->
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Patient Name:</label>
-                                        <input type="text" name="patient_name" class="form-control" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Contact No:</label>
-                                        <input type="text" name="contact_no" class="form-control" required>
-                                    </div>
-                                </div>
 
-                                <div class="row mt-2">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Address:</label>
-                                        <textarea name="address" class="form-control" rows="2"></textarea>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="form-label">Age:</label>
-                                        <input type="number" name="age" class="form-control">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="form-label">Gender:</label>
-                                        <select name="gender" class="form-control">
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
-                                        </select>
+                                    <!-- Content Column -->
+                                    <div class="col-lg-6 mb-4">
+
+
+
                                     </div>
                                 </div>
-
-                                <div class="row mt-2">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Date of Birth:</label>
-                                        <input type="date" name="dob" class="form-control">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label">Date:</label>
-                                        <input type="date" name="date" class="form-control">
-                                    </div>
-                                </div>
-
-                                <!-- Lens Type (Checklist) -->
-                                <h4 class="mt-4">Lens Type</h4>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-check">
-                                            <input type="checkbox" name="lens_type[]" value="SV" class="form-check-input"> SV
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" name="lens_type[]" value="Anti Rad" class="form-check-input"> Anti Rad
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" name="lens_type[]" value="MC" class="form-check-input"> MC
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-check">
-                                            <input type="checkbox" name="lens_type[]" value="PAL" class="form-check-input"> PAL
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" name="lens_type[]" value="Digital" class="form-check-input"> Digital
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Frame Type (Options) -->
-                                <h4 class="mt-4">Frame Type</h4>
-                                <div class="mb-3">
-                                    <select name="frame_type" class="form-control">
-                                        <option value="Metal">Metal</option>
-                                        <option value="Plastic">Plastic</option>
-                                        <option value="Full Rim">Full Rim</option>
-                                        <option value="Semi Rimless">Semi Rimless</option>
-                                    </select>
-                                </div>
-
-                                <!-- Contact Lens Type (Options) -->
-                                <h4 class="mt-4">Contact Lens Type</h4>
-                                <div class="mb-3">
-                                    <select name="contact_lens_type" class="form-control">
-                                        <option value="Dailies">Dailies</option>
-                                        <option value="Conventional">Conventional</option>
-                                        <option value="RGP">RGP</option>
-                                    </select>
-                                </div>
-
-                                <!-- Frame Parameters -->
-                                <h4 class="mt-4">Frame Parameters</h4>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label class="form-label">HOR:</label>
-                                        <input type="text" name="frame_hor" class="form-control">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label">VER:</label>
-                                        <input type="text" name="frame_ver" class="form-control">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label">NBL:</label>
-                                        <input type="text" name="frame_nbl" class="form-control">
-                                    </div>
-                                </div>
-
-                                <!-- Lens Brand -->
-                                <h4 class="mt-4">Lens Brand</h4>
-                                <div class="mb-3">
-                                    <input type="text" name="lens_brand" class="form-control">
-                                </div>
-
-                                <!-- Chief Complaint (Checklist) -->
-                                <h4 class="mt-4">Chief Complaint</h4>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-check">
-                                            <input type="checkbox" name="chief_complaint[]" value="BOV" class="form-check-input"> BOV (Far/Near)
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" name="chief_complaint[]" value="Headache" class="form-check-input"> Headache
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Medical History (Checklist) -->
-                                <h4 class="mt-4">Medical History</h4>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-check">
-                                            <input type="checkbox" name="medical_hx[]" value="Hypertension" class="form-check-input"> Hypertension
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" name="medical_hx[]" value="Diabetes" class="form-check-input"> Diabetes
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Submit Button -->
-                                <button type="submit" class="btn btn-primary mt-4">Add Client</button>
-
-                            </form>
-                        </div>
-
-                        <!-- Content Row -->
-                        <div class="row">
-
-                            <!-- Content Column -->
-                            <div class="col-lg-6 mb-4">
-
-
 
                             </div>
+                            <!-- /.container-fluid -->
                         </div>
-
                     </div>
-                    <!-- /.container-fluid -->
-
                 </div>
                 <!-- End of Main Content -->
 
