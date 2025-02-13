@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 13, 2025 at 01:40 PM
+-- Generation Time: Feb 09, 2025 at 03:55 PM
 -- Server version: 8.2.0
 -- PHP Version: 7.4.33
 
@@ -131,6 +131,8 @@ CREATE TABLE IF NOT EXISTS `frameparameters` (
   `frameParameterId` int NOT NULL AUTO_INCREMENT,
   `patientId` int NOT NULL,
   `date` date NOT NULL,
+  `frameTypeId` int NOT NULL,
+  `contactLensTypeId` int NOT NULL,
   `hor` varchar(255) DEFAULT NULL,
   `ver` varchar(255) DEFAULT NULL,
   `nbl` varchar(255) DEFAULT NULL,
@@ -339,7 +341,11 @@ CREATE TABLE IF NOT EXISTS `oldframetypes` (
   `oldFrameTypeId` int NOT NULL,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `value` varchar(255) NOT NULL,
+  `METAL` int DEFAULT '0',
+  `FULLRIM` int DEFAULT '0',
+  `PLASTIC` int DEFAULT '0',
+  `SEMI_RIM` int DEFAULT '0',
+  `RIMLESS` int DEFAULT '0',
   PRIMARY KEY (`oldFrameTypeId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -354,7 +360,16 @@ CREATE TABLE IF NOT EXISTS `oldlenstype` (
   `oldLensTypeId` int NOT NULL,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `value` varchar(255) NOT NULL,
+  `KK` int DEFAULT '0',
+  `PAL` int DEFAULT '0',
+  `FT` int DEFAULT '0',
+  `SV` int DEFAULT '0',
+  `UC` int DEFAULT '0',
+  `MC` int DEFAULT '0',
+  `BL` int DEFAULT '0',
+  `TRAN_PHO` int DEFAULT '0',
+  `AR` int DEFAULT '0',
+  `TINTED` int DEFAULT '0',
   PRIMARY KEY (`oldLensTypeId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -389,7 +404,12 @@ CREATE TABLE IF NOT EXISTS `patientcontactlenstypes` (
   `patientContactLensTypeId` int NOT NULL,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `value` varchar(255) NOT NULL,
+  `DAILIES` int DEFAULT '0',
+  `CONVENTIONAL` int DEFAULT '0',
+  `RGP` int DEFAULT '0',
+  `ORTHO_K` int DEFAULT '0',
+  `MULTIFOCAL` int DEFAULT '0',
+  `COLORED` int DEFAULT '0',
   PRIMARY KEY (`patientContactLensTypeId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -404,7 +424,11 @@ CREATE TABLE IF NOT EXISTS `patientframetype` (
   `patientFrameTypeId` int NOT NULL,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `value` varchar(255) NOT NULL,
+  `METAL` int DEFAULT '0',
+  `PLASTIC` int DEFAULT '0',
+  `FULL_RIM` int DEFAULT '0',
+  `SEMI_RIMLESS` int DEFAULT '0',
+  `RIMLESS` int DEFAULT '0',
   PRIMARY KEY (`patientFrameTypeId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

@@ -156,8 +156,30 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                                 <label class="form-label"></label>
                                                 <input type="number" name="addSecondNVA" class="form-control">
                                             </div>
+                                        </div>
 
 
+                                        <h4 class="mt-4">Retinoscopy</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="form-label">OD:</label>
+                                                <input type="text" name="retinoscopy_od" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">OS:</label>
+                                                <input type="number" name="retinoscopy_os" class="form-control">
+                                            </div>
+                                        </div>
+                                        <h4 class="mt-4">Diagnosis</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="form-label">OD:</label>
+                                                <input type="text" name="diagnosis_od" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">OS:</label>
+                                                <input type="number" name="diagnosis_os" class="form-control">
+                                            </div>
                                         </div>
 
 
@@ -165,26 +187,64 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <!-- Lens Type (Checklist) -->
                                         <h4 class="mt-4">Lens Type</h4>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="lens_type[]" value="SV" class="form-check-input"> SV
+                                                    <input type="hidden" name="sv" value="0">
+                                                    <input type="checkbox" name="sv" value="1" class="form-check-input"> SV
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="lens_type[]" value="Anti Rad" class="form-check-input"> Anti Rad
+                                                    <input type="hidden" name="anti_rad" value="0">
+                                                    <input type="checkbox" name="anti_rad" value="1" class="form-check-input"> Anti Rad
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="lens_type[]" value="MC" class="form-check-input"> MC
+                                                    <input type="hidden" name="mc" value="0">
+                                                    <input type="checkbox" name="mc" value="1" class="form-check-input"> MC
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="lens_type[]" value="PAL" class="form-check-input"> PAL
+                                                    <input type="hidden" name="kk" value="0">
+                                                    <input type="checkbox" name="kk" value="1" class="form-check-input"> KK
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="lens_type[]" value="Digital" class="form-check-input"> Digital
+                                                    <input type="hidden" name="ft" value="0">
+                                                    <input type="checkbox" name="ft" value="1" class="form-check-input"> FT
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="pal" value="0">
+                                                    <input type="checkbox" name="pal" value="1" class="form-check-input"> PAL
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="digital" value="0">
+                                                    <input type="checkbox" name="digital" value="1" class="form-check-input"> Digital
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="eyezen" value="0">
+                                                    <input type="checkbox" name="eyezen" value="1" class="form-check-input"> Eyezen
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="photo" value="0">
+                                                    <input type="checkbox" name="photo" value="1" class="form-check-input"> Photo
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="trans" value="0">
+                                                    <input type="checkbox" name="trans" value="1" class="form-check-input"> Trans
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="blue_lens" value="0">
+                                                    <input type="checkbox" name="blue_lens" value="1" class="form-check-input"> Blue Lens
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="tint_colored" value="0">
+                                                    <input type="checkbox" name="tint_colored" value="1" class="form-check-input"> Tint/Colored
                                                 </div>
                                             </div>
                                         </div>
+
 
                                         <!-- Frame Type (Options) -->
                                         <h4 class="mt-4">Frame Type</h4>
@@ -194,6 +254,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                                 <option value="Plastic">Plastic</option>
                                                 <option value="Full Rim">Full Rim</option>
                                                 <option value="Semi Rimless">Semi Rimless</option>
+                                                <option value="Semi Rimless">Rimless</option>
                                             </select>
                                         </div>
 
@@ -204,8 +265,12 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                                 <option value="Dailies">Dailies</option>
                                                 <option value="Conventional">Conventional</option>
                                                 <option value="RGP">RGP</option>
+                                                <option value="Ortho K">Ortho K</option>
+                                                <option value="Multifocal">Multifocal</option>
+                                                <option value="Colored">Colored</option>
                                             </select>
                                         </div>
+
 
                                         <!-- Frame Parameters -->
                                         <h4 class="mt-4">Frame Parameters</h4>
@@ -224,11 +289,57 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                         </div>
 
-                                        <!-- Lens Brand -->
-                                        <h4 class="mt-4">Lens Brand</h4>
-                                        <div class="mb-3">
-                                            <input type="text" name="lens_brand" class="form-control">
+                                        <div class="row mt-3">
+                                            <div class="col-md-4">
+                                                <label class="form-label">FITTING H:</label>
+                                                <input type="text" name="frame_fitting_h" class="form-control">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">SEGMENT H:</label>
+                                                <input type="text" name="frame_segment_h" class="form-control">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">EFFECTIVE DIA:</label>
+                                                <input type="text" name="frame_effective_dia" class="form-control">
+                                            </div>
                                         </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-4">
+                                                <label class="form-label"><b>MONO/BINO PD:</b></label>
+                                                <input type="text" name="frame_mono_bino_pd" class="form-control">
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Lens Brand -->
+
+
+                                        
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">LENS BRAND:</label>
+                                                <input type="text" name="lens_brand" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">LENS PRICE:</label>
+                                                <input type="text" name="lens_price" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">CONTACT LENS PRICE:</label>
+                                                <input type="text" name="contact_lens_price" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">TOTAL AMOUNT:</label>
+                                                <input type="text" name="total_amount" class="form-control">
+                                            </div>
+                                        </div>
+
+
 
                                         <!-- Chief Complaint (Checklist) -->
                                         <h4 class="mt-4">Chief Complaint</h4>
