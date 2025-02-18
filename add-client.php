@@ -315,7 +315,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <!-- Lens Brand -->
 
 
-                                        
+
 
                                         <div class="row mt-4">
                                             <div class="col-md-6">
@@ -339,33 +339,331 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                         </div>
 
+                                        <hr>
+                                        <h2 class="mt-4">OLD RX:</h2>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="form-label">OD:</label>
+                                                <input type="text" name="old_od" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">VA:</label>
+                                                <input type="number" name="old_odVA" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-6">
+                                                <label class="form-label">OS:</label>
+                                                <input type="text" name="old_os" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">VAsc:</label>
+                                                <input type="number" name="old_osVA" class="form-control">
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-6">
+                                                <label class="form-label">ADD:</label>
+                                                <input type="text" name="old_addFirst" class="form-control">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label">N.VA</label>
+                                                <input type="number" name="old_addFirstNVA" class="form-control">
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <!-- Lens Type (Checklist) -->
+                                        <h4 class="mt-4">Lens Type</h4>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_sv" value="0">
+                                                    <input type="checkbox" name="old_sv" value="1" class="form-check-input"> SV
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_" value="0">
+                                                    <input type="checkbox" name="old_anti_rad" value="1" class="form-check-input"> Anti Rad
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_mc" value="0">
+                                                    <input type="checkbox" name="old_mc" value="1" class="form-check-input"> MC
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_kk" value="0">
+                                                    <input type="checkbox" name="old_kk" value="1" class="form-check-input"> KK
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_ft" value="0">
+                                                    <input type="checkbox" name="old_ft" value="1" class="form-check-input"> FT
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_pal" value="0">
+                                                    <input type="checkbox" name="old_pal" value="1" class="form-check-input"> PAL
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_" value="0">
+                                                    <input type="checkbox" name="old_digital" value="1" class="form-check-input"> Digital
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_eyezen" value="0">
+                                                    <input type="checkbox" name="old_eyezen" value="1" class="form-check-input"> Eyezen
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_photo" value="0">
+                                                    <input type="checkbox" name="old_photo" value="1" class="form-check-input"> Photo
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_trans" value="0">
+                                                    <input type="checkbox" name="old_trans" value="1" class="form-check-input"> Trans
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_blue_lens" value="0">
+                                                    <input type="checkbox" name="old_blue_lens" value="1" class="form-check-input"> Blue Lens
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="old_tint_colored" value="0">
+                                                    <input type="checkbox" name="old_tint_colored" value="1" class="form-check-input"> Tint/Colored
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Frame Type (Options) -->
+                                        <h4 class="mt-4">Frame Type</h4>
+                                        <div class="mb-3">
+                                            <select name="old_frame_type" class="form-control">
+                                                <option value="Metal">Metal</option>
+                                                <option value="Plastic">Plastic</option>
+                                                <option value="Full Rim">Full Rim</option>
+                                                <option value="Semi Rimless">Semi Rimless</option>
+                                                <option value="Semi Rimless">Rimless</option>
+                                            </select>
+                                        </div>
+
+
 
 
                                         <!-- Chief Complaint (Checklist) -->
                                         <h4 class="mt-4">Chief Complaint</h4>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="chief_complaint[]" value="BOV" class="form-check-input"> BOV (Far/Near)
+                                                    <input type="hidden" name="BOV_FAR" value="0">
+                                                    <input type="checkbox" name="BOV_FAR" value="1" class="form-check-input"> BOV (Far)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="chief_complaint[]" value="Headache" class="form-check-input"> Headache
+                                                    <input type="hidden" name="BOV_NEAR" value="0">
+                                                    <input type="checkbox" name="BOV_NEAR" value="1" class="form-check-input"> BOV (Near)
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="HEADACHE" value="0">
+                                                    <input type="checkbox" name="HEADACHE" value="1" class="form-check-input"> Headache
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="DOUBLE_VISION" value="0">
+                                                    <input type="checkbox" name="DOUBLE_VISION" value="1" class="form-check-input"> Double Vision
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="GLARING" value="0">
+                                                    <input type="checkbox" name="GLARING" value="1" class="form-check-input"> Glaring
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="ITCHY_EYES" value="0">
+                                                    <input type="checkbox" name="ITCHY_EYES" value="1" class="form-check-input"> Itchy Eyes
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="REDNESS" value="0">
+                                                    <input type="checkbox" name="REDNESS" value="1" class="form-check-input"> Redness
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="LACRIMATION" value="0">
+                                                    <input type="checkbox" name="LACRIMATION" value="1" class="form-check-input"> Lacrimation
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="DRY_EYE" value="0">
+                                                    <input type="checkbox" name="DRY_EYE" value="1" class="form-check-input"> Dry Eye
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!-- Medical History (Checklist) -->
+                                        <h4 class="mt-4">Ocular History</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="GLAUCOMA" value="0">
+                                                    <input type="checkbox" name="GLAUCOMA" value="1" class="form-check-input"> Glaucoma
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="CATARACT" value="0">
+                                                    <input type="checkbox" name="CATARACT" value="1" class="form-check-input"> Cataract
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="RETINA" value="0">
+                                                    <input type="checkbox" name="RETINA" value="1" class="form-check-input"> Retina
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="MACULA" value="0">
+                                                    <input type="checkbox" name="MACULA" value="1" class="form-check-input"> Macula
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="INJURIES" value="0">
+                                                    <input type="checkbox" name="INJURIES" value="1" class="form-check-input"> Injuries
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="OTHERS" value="0">
+                                                    <input type="checkbox" name="OTHERS" value="1" class="form-check-input"> Others
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--Occupational History -->
+                                        <h4 class="mt-4">Occupational History</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="NON_WORKING" value="0">
+                                                    <input type="checkbox" name="NON_WORKING" value="1" class="form-check-input"> Non-Working
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="WORKING" value="0">
+                                                    <input type="checkbox" name="WORKING" value="1" class="form-check-input"> Working
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="FIELD" value="0">
+                                                    <input type="checkbox" name="FIELD" value="1" class="form-check-input"> Field
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="OFFICE" value="0">
+                                                    <input type="checkbox" name="OFFICE" value="1" class="form-check-input"> Office
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="WFH" value="0">
+                                                    <input type="checkbox" name="WFH" value="1" class="form-check-input"> Work From Home (WFH)
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="BUSINESS" value="0">
+                                                    <input type="checkbox" name="BUSINESS" value="1" class="form-check-input"> Business
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="STUDYING" value="0">
+                                                    <input type="checkbox" name="STUDYING" value="1" class="form-check-input"> Studying
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <h4 class="mt-4">Medical History</h4>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="medical_hx[]" value="Hypertension" class="form-check-input"> Hypertension
+                                                    <input type="hidden" name="HYPERTENSION" value="0">
+                                                    <input type="checkbox" name="HYPERTENSION" value="1" class="form-check-input"> Hypertension
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="checkbox" name="medical_hx[]" value="Diabetes" class="form-check-input"> Diabetes
+                                                    <input type="hidden" name="DIABETES" value="0">
+                                                    <input type="checkbox" name="DIABETES" value="1" class="form-check-input"> Diabetes
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="CVD" value="0">
+                                                    <input type="checkbox" name="CVD" value="1" class="form-check-input"> Cardiovascular Disease (CVD)
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="ASTHMA" value="0">
+                                                    <input type="checkbox" name="ASTHMA" value="1" class="form-check-input"> Asthma
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="ALLERGIES" value="0">
+                                                    <input type="checkbox" name="ALLERGIES" value="1" class="form-check-input"> Allergies
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="OTHERS" value="0">
+                                                    <input type="checkbox" name="OTHERS" value="1" class="form-check-input"> Others
                                                 </div>
                                             </div>
                                         </div>
+
+
+
+                                        <h4 class="mt-4">Digital History</h4>
+                                        <div class="row">
+                                            <!-- No of Hours Input -->
+                                            <div class="col-md-6">
+                                                <label for="NO_OF_HOURS" class="form-label">No of Hours:</label>
+                                                <input type="number" name="NO_OF_HOURS" id="NO_OF_HOURS" class="form-control" min="0">
+                                            </div>
+
+                                            <!-- Sleep Hours Input -->
+                                            <div class="col-md-6">
+                                                <label for="SLEEP_HOURS" class="form-label">Sleep Hours:</label>
+                                                <input type="number" name="SLEEP_HOURS" id="SLEEP_HOURS" class="form-control" min="0">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="LAPTOP" value="0">
+                                                    <input type="checkbox" name="LAPTOP" value="1" class="form-check-input"> Laptop
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="MOBILE" value="0">
+                                                    <input type="checkbox" name="MOBILE" value="1" class="form-check-input"> Mobile
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="DESKTOP" value="0">
+                                                    <input type="checkbox" name="DESKTOP" value="1" class="form-check-input"> Desktop
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="hidden" name="TELEVISION" value="0">
+                                                    <input type="checkbox" name="TELEVISION" value="1" class="form-check-input"> Television
+                                                </div>
+                                            </div>
+                                        </div>
+
+
 
                                         <!-- Submit Button -->
                                         <button type="submit" class="btn btn-primary mt-4">Add Client</button>

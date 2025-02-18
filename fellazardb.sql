@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 13, 2025 at 01:40 PM
+-- Generation Time: Feb 18, 2025 at 01:57 PM
 -- Server version: 8.2.0
 -- PHP Version: 7.4.33
 
@@ -41,6 +41,29 @@ CREATE TABLE IF NOT EXISTS `admin` (
 
 INSERT INTO `admin` (`adminID`, `adminUsername`, `adminPassword`) VALUES
 (1, 'admin', '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chiefcomplaint`
+--
+
+DROP TABLE IF EXISTS `chiefcomplaint`;
+CREATE TABLE IF NOT EXISTS `chiefcomplaint` (
+  `chiefComplaintId` int NOT NULL,
+  `patientId` int DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `BOV_FAR` int DEFAULT '0',
+  `BOV_NEAR` int DEFAULT '0',
+  `HEADACHE` int DEFAULT '0',
+  `DOUBLE_VISION` int DEFAULT '0',
+  `GLARING` int DEFAULT '0',
+  `ITCHY_EYES` int DEFAULT '0',
+  `REDNESS` int DEFAULT '0',
+  `LACRIMATION` int DEFAULT '0',
+  `DRY_EYE` int DEFAULT '0',
+  PRIMARY KEY (`chiefComplaintId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -351,11 +374,22 @@ CREATE TABLE IF NOT EXISTS `oldframetypes` (
 
 DROP TABLE IF EXISTS `oldlenstype`;
 CREATE TABLE IF NOT EXISTS `oldlenstype` (
-  `oldLensTypeId` int NOT NULL,
-  `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `value` varchar(255) NOT NULL,
-  PRIMARY KEY (`oldLensTypeId`)
+  `oldlensTypeId` int NOT NULL,
+  `patientId` int NOT NULL,
+  `date` date NOT NULL,
+  `SV` int DEFAULT '0',
+  `ANTI_RAD` int DEFAULT '0',
+  `MC` int DEFAULT '0',
+  `KK` int DEFAULT '0',
+  `FT` int DEFAULT '0',
+  `PAL` int DEFAULT '0',
+  `DIGITAL` int DEFAULT '0',
+  `EYEZEN` int DEFAULT '0',
+  `PHOTO` int DEFAULT '0',
+  `TRANS` int DEFAULT '0',
+  `BLUE_LENS` int DEFAULT '0',
+  `TINT_COLORED` int DEFAULT '0',
+  PRIMARY KEY (`oldlensTypeId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -367,6 +401,7 @@ CREATE TABLE IF NOT EXISTS `oldlenstype` (
 DROP TABLE IF EXISTS `oldrx`;
 CREATE TABLE IF NOT EXISTS `oldrx` (
   `oldRXId` int NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
   `oldRXDate` date NOT NULL,
   `patientId` int NOT NULL,
   `oldOD` varchar(255) DEFAULT NULL,
