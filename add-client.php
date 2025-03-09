@@ -664,6 +664,106 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         </div>
 
 
+                                        <div class="mt-4">
+                                            <h4 class="mb-3">NPA</h4>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="form-label">OD:</label>
+                                                    <input type="text" name="npa_od" class="form-control" placeholder="Enter OD value">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label">OS:</label>
+                                                    <input type="text" name="npa_os" class="form-control" placeholder="Enter OS value">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label">OU:</label>
+                                                    <input type="text" name="npa_ou" class="form-control" placeholder="Enter OU value">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <!-- Dominant Eye Section -->
+                                            <h4 class="mb-3">Dominant Eye</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">OD:</label>
+                                                    <input type="text" name="dominant_eye_od" class="form-control" placeholder="Enter OD value">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">OS:</label>
+                                                    <input type="text" name="dominant_eye_os" class="form-control" placeholder="Enter OS value">
+                                                </div>
+                                            </div>
+
+                                            <!-- NPA AGE Section -->
+                                            <h4 class="mt-4 mb-3">NPA Age</h4>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="form-label">MIN:</label>
+                                                    <input type="number" name="npa_min" class="form-control" placeholder="Min value" step="0.01" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label">AVE:</label>
+                                                    <input type="number" name="npa_ave" class="form-control" placeholder="Average value" step="0.01" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label">MAX:</label>
+                                                    <input type="number" name="npa_max" class="form-control" placeholder="Max value" step="0.01" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <!-- Pupil Size Section -->
+                                            <h4 class="mb-3">Pupil Size</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">OD:</label>
+                                                    <input type="text" name="pupil_size_od" class="form-control" placeholder="Enter OD value" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">OS:</label>
+                                                    <input type="text" name="pupil_size_os" class="form-control" placeholder="Enter OS value" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mt-4">
+                                            <!-- MONO/BINO PD Section -->
+                                            <h4 class="mb-3">MONO/BINO PD</h4>
+                                            <div class="mb-3">
+                                                <input type="text" name="mono_bino_pd" class="form-control" placeholder="Enter MONO/BINO PD value" required>
+                                            </div>
+
+                                            <!-- NPC Section -->
+                                            <h4 class="mt-4 mb-3">NPC</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">BREAK:</label>
+                                                    <input type="text" name="npc_break" class="form-control" placeholder="Enter Break value" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">RECOVERY:</label>
+                                                    <input type="text" name="npc_recovery" class="form-control" placeholder="Enter Recovery value" required>
+                                                </div>
+                                            </div>
+
+                                            <!-- IOP Section -->
+                                            <h4 class="mt-4 mb-3">IOP</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">OD:</label>
+                                                    <input type="text" name="iop_od" class="form-control" placeholder="Enter OD value" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">OS:</label>
+                                                    <input type="text" name="iop_os" class="form-control" placeholder="Enter OS value" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                         <!-- Submit Button -->
                                         <button type="submit" class="btn btn-primary mt-4">Add Client</button>
