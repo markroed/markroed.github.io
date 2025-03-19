@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 18, 2025 at 01:57 PM
+-- Generation Time: Mar 19, 2025 at 11:50 PM
 -- Server version: 8.2.0
 -- PHP Version: 7.4.33
 
@@ -459,7 +459,14 @@ CREATE TABLE IF NOT EXISTS `patients` (
   `contactNo` varchar(20) DEFAULT NULL,
   `dateOfBirth` date DEFAULT NULL,
   PRIMARY KEY (`patientId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `patients`
+--
+
+INSERT INTO `patients` (`patientId`, `name`, `address`, `age`, `gender`, `contactNo`, `dateOfBirth`) VALUES
+(1, 'test', 'test', 21, 'Male', '123456787908', '2025-03-10');
 
 -- --------------------------------------------------------
 
