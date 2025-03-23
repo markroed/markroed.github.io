@@ -1,88 +1,42 @@
 <?php
-// Include database connection
-include("connection/connect.php");
+include("connection/connect.php"); // Database connection
+session_start();
 
-// Check if form data has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if patient ID exists
+    if (!isset($_POST['patientId']) || !is_numeric($_POST['patientId'])) {
+        die("Error: Invalid or missing Patient ID.");
+    }
+    $patientId = $_POST['patientId']; // Get patient ID from the form
+
+    // Get values from form
+    $date = $_POST["date"] ?? date("Y-m-d"); // Default to today's date if not provided
     
-    // Patient Information (patients table)
-    $patient_name = mysqli_real_escape_string($db, $_POST['patient_name']);
-    $address = mysqli_real_escape_string($db, $_POST['address']);
-    $age = intval($_POST['age']);
-    $gender = mysqli_real_escape_string($db, $_POST['gender']);
-    $dob = mysqli_real_escape_string($db, $_POST['dob']);
-    $contact_no = mysqli_real_escape_string($db, $_POST['contact_no']);
-
-    // Final Prescription (finalprescriptions table)
-    $prescription_date = mysqli_real_escape_string($db, $_POST['date']);
-    $od = mysqli_real_escape_string($db, $_POST['od']);
-    $odVAsc = intval($_POST['odVAsc']);
-    $odph = intval($_POST['odph']);
-    $odVAcc = intval($_POST['odVAcc']);
-
-    $os = mysqli_real_escape_string($db, $_POST['os']);
-    $osVAsc = intval($_POST['osVAsc']);
-    $osph = intval($_POST['osph']);
-    $osVAcc = intval($_POST['osVAcc']);
-
-    $addFirst = mysqli_real_escape_string($db, $_POST['addFirst']);
-    $addFirstNVA = intval($_POST['addFirstNVA']);
-    $addSecond = mysqli_real_escape_string($db, $_POST['addSecond']);
-    $addSecondNVA = intval($_POST['addSecondNVA']);
-
-    $retinoscopy_od = mysqli_real_escape_string($db, $_POST['retinoscopy_od']);
-    $retinoscopy_os = intval($_POST['retinoscopy_os']);
-
-    $diagnosis_od = mysqli_real_escape_string($db, $_POST['diagnosis_od']);
-    $diagnosis_os = intval($_POST['diagnosis_os']);
-
-    // Insert into patients table
-    $insert_patient = $db->prepare("
-        INSERT INTO patients (name, address, age, gender, dob, contact_no) 
-        VALUES (?, ?, ?, ?, ?, ?)
-    ");
-    $insert_patient->bind_param("ssisss", $patient_name, $address, $age, $gender, $dob, $contact_no);
-
-    if ($insert_patient->execute()) {
-        // Get the newly inserted Patient ID
-        $patient_id = $insert_patient->insert_id;
-
-        // Insert into finalprescriptions table
-        $insert_prescription = $db->prepare("
-            INSERT INTO finalprescriptions (
-                patient_id, date, 
-                od, odVAsc, odph, odVAcc, 
-                os, osVAsc, osph, osVAcc, 
-                addFirst, addFirstNVA, addSecond, addSecondNVA,
-                retinoscopy_od, retinoscopy_os, 
-                diagnosis_od, diagnosis_os
-            ) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ");
-        $insert_prescription->bind_param(
-            "issiiiiisiiiiissii", 
-            $patient_id, $prescription_date,
-            $od, $odVAsc, $odph, $odVAcc,
-            $os, $osVAsc, $osph, $osVAcc,
-            $addFirst, $addFirstNVA, $addSecond, $addSecondNVA,
-            $retinoscopy_od, $retinoscopy_os,
-            $diagnosis_od, $diagnosis_os
-        );
-
-        if ($insert_prescription->execute()) {
-            echo "✅ Patient information and prescription details added successfully.";
-        } else {
-            echo "❌ Error adding prescription details: " . $insert_prescription->error;
-        }
-    } else {
-        echo "❌ Error adding patient information: " . $insert_patient->error;
+    // Insert into finalprescriptions table
+    $query = "INSERT INTO finalprescriptions (patientId, date, od, odVasc, odPh, odVacc, os, osVAsc, osPh, osVacc, addFirst, addFirstNVA, addSecond, addSecondNVA) 
+              VALUES ('$patientId', '$date', '{$_POST["od"]}', '{$_POST["odVAsc"]}', '{$_POST["odph"]}', '{$_POST["odVAcc"]}', 
+                      '{$_POST["os"]}', '{$_POST["osVAsc"]}', '{$_POST["osph"]}', '{$_POST["osVAcc"]}', 
+                      '{$_POST["addFirst"]}', '{$_POST["addFirstNVA"]}', '{$_POST["addSecond"]}', '{$_POST["addSecondNVA"]}')";
+    if (!mysqli_query($db, $query)) {
+        die("Final Prescription Query Failed: " . mysqli_error($db));
     }
 
-    // Close statements
-    $insert_patient->close();
-    $insert_prescription->close();
-}
+    // Insert into retinoscopy table
+    $query = "INSERT INTO retinoscopy (patientID, date, od, os) 
+              VALUES ('$patientId', '$date', '{$_POST["retinoscopy_od"]}', '{$_POST["retinoscopy_os"]}')";
+    if (!mysqli_query($db, $query)) {
+        die("Retinoscopy Query Failed: " . mysqli_error($db));
+    }
 
-// Close database connection
-$db->close();
-?>
+    // Insert into oldRX table
+    $query = "INSERT INTO oldrx (patientID, date, oldRXdate, od, odVA, os, osVA, addFirst, addFirstNVA) 
+              VALUES ('$patientId', '$date', '{$_POST["oldRXdate"]}', '{$_POST["old_od"]}', '{$_POST["old_odVA"]}', 
+                      '{$_POST["old_os"]}', '{$_POST["old_osVA"]}', '{$_POST["old_addFirst"]}', '{$_POST["old_addFirstNVA"]}')";
+    if (!mysqli_query($db, $query)) {
+        die("Old RX Query Failed: " . mysqli_error($db));
+    }
+
+    // Redirect back to view-client.php
+    header("Location: view-client.php?patient_id=" . $patientId);
+    exit();
+}

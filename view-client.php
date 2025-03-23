@@ -46,45 +46,51 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
 
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
+                                <div class="card-header py-3 d-flex justify-content-between align-items-center">
                                     <h6 class="m-0 font-weight-bold text-primary">Clients</h6>
+                                    <?php if (isset($_GET['patient_id'])) { ?>
+                                        <a href="add-transaction.php?patient_id=<?php echo $_GET['patient_id']; ?>" class="btn btn-success btn-sm">
+                                            <i class="fas fa-plus"></i> Create Transaction
+                                        </a>
+                                    <?php } ?>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
                                                     <th>Patient Name</th>
-                                                    <th>Contact Number</th>
-                                                    <th>Address</th>
-                                                    <th>Age</th>
-                                                    <th>Gender</th>
-                                                    <th>Date of Birth</th>
+                                                    <th>Consultation Date</th>
                                                     <th>Open</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Juan Dela Cruz</td>
-                                                    <td>+63 917 123 4567</td>
-                                                    <td>Quezon City, Metro Manila</td>
-                                                    <td>45</td>
-                                                    <td>Male</td>
-                                                    <td>1979/04/15</td>
-                                                    <td><a href>OPEN</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maria Santos</td>
-                                                    <td>+63 920 234 5678</td>
-                                                    <td>Makati City, Metro Manila</td>
-                                                    <td>38</td>
-                                                    <td>Female</td>
-                                                    <td>1986/07/21</td>
-                                                    <td><a href>OPEN</a></td>
-                                                </tr>
+                                                <?php
+                                                // Fetch patient name from patients table and consultation date from finalprescriptions
+                                                $query = "
+            SELECT p.name, fp.date, fp.patientId 
+            FROM finalprescriptions fp
+            INNER JOIN patients p ON fp.patientId = p.patientId
+            ORDER BY fp.date DESC
+        ";
+                                                $result = mysqli_query($db, $query);
 
+                                                if (mysqli_num_rows($result) > 0) {
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                                                        echo "<td>" . htmlspecialchars($row['date']) . "</td>";
+                                                        echo "<td><a href='view-client.php?patient_id=" . $row['patientId'] . "' class='btn btn-primary btn-sm'>OPEN</a></td>";
+                                                        echo "</tr>";
+                                                    }
+                                                } else {
+                                                    echo "<tr><td colspan='3' class='text-center'>No records found</td></tr>";
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
+
 
                                     </div>
                                 </div>

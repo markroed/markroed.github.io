@@ -48,52 +48,22 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                     <h6 class="m-0 font-weight-bold text-primary">Add New Client</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form action="process_client.php" method="POST">
+                                    <form action="process-client-history.php" method="POST">
+
+                                        <input type="hidden" name="patientId" value="<?php echo isset($_GET['patient_id']) ? $_GET['patient_id'] : ''; ?>">
+
 
                                         <!-- Patient Information Section -->
                                         <h4 class="mb-3">Patient Information</h4>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Patient Name:</label>
-                                                <input type="text" name="patient_name" class="form-control" required>
-                                            </div>
                                             <div class="col-md-4">
                                                 <label class="form-label">Date:</label>
-                                                <input type="date" name="date" class="form-control" required>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Address:</label>
-                                                <textarea name="address" class="form-control" rows="2"></textarea>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="form-label">Age:</label>
-                                                <input type="number" name="age" class="form-control">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="form-label">Gender:</label>
-                                                <select name="gender" class="form-control">
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
+                                                <input type="date" name="date" class="form-control" required value="<?php echo date('Y-m-d'); ?>">
                                             </div>
                                         </div>
 
-                                        <div class="row mt-2">
-                                            <div class="col-md-4">
-                                                <label class="form-label">Date of Birth:</label>
-                                                <input type="date" name="dob" class="form-control">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Contact No:</label>
-                                                <input type="text" name="contact_no" class="form-control">
-                                            </div>
 
-                                        </div>
+
 
                                         <!-- Final Prescription -->
                                         <h4 class="mt-4">Final Prescription</h4>
@@ -341,8 +311,13 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
 
                                         <hr>
                                         <h2 class="mt-4">OLD RX:</h2>
-
                                         <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label">Date:</label>
+                                                <input type="date" name="oldRXdate" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
                                             <div class="col-md-6">
                                                 <label class="form-label">OD:</label>
                                                 <input type="text" name="old_od" class="form-control">
