@@ -220,18 +220,21 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <h4 class="mt-4">Frame Type</h4>
                                         <div class="mb-3">
                                             <select name="frame_type" class="form-control">
+                                                <option value="None" selected>None</option>
                                                 <option value="Metal">Metal</option>
                                                 <option value="Plastic">Plastic</option>
                                                 <option value="Full Rim">Full Rim</option>
                                                 <option value="Semi Rimless">Semi Rimless</option>
-                                                <option value="Semi Rimless">Rimless</option>
+                                                <option value="Rimless">Rimless</option>
                                             </select>
                                         </div>
+
 
                                         <!-- Contact Lens Type (Options) -->
                                         <h4 class="mt-4">Contact Lens Type</h4>
                                         <div class="mb-3">
                                             <select name="contact_lens_type" class="form-control">
+                                                <option value="None" selected>None</option>
                                                 <option value="Dailies">Dailies</option>
                                                 <option value="Conventional">Conventional</option>
                                                 <option value="RGP">RGP</option>
