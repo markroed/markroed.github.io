@@ -45,7 +45,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                         <div class="container mt-4">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Add New Client</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Add Transaction</h6>
                                 </div>
                                 <div class="card-body">
                                     <form action="process-client-history.php" method="POST">

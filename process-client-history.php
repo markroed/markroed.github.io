@@ -47,7 +47,13 @@ VALUES ('$patientId', '$date', '{$_POST["frame_type"]}'";
                VALUES ('$patientId', '$date', '{$_POST["contact_lens_type"]}'";
         mysqli_query($db, $query) or die("patientcontactlenstypes Query Failed: " . mysqli_error($db));
 
-        Tiwasa sa ubos
+        // Insert into Frame Parameters table frameParameterId	patientId	date	hor	ver	nbl	fittingH	segmentH	effectiveDIA	monoBinoPD	
+TIWASA NI
+        $query = "INSERT INTO frameparameters (frameParameterId, patientId, date,hor,ver,nbl,fittingH,segmentH,effectiveDIA,monoBinoPD) 
+              VALUES ('$patientId', '$date', '{$_POST["od"]}', '{$_POST["odVAsc"]}', '{$_POST["odph"]}', '{$_POST["odVAcc"]}', 
+                      '{$_POST["os"]}', '{$_POST["osVAsc"]}', '{$_POST["osph"]}', '{$_POST["osVAcc"]}', 
+                      '{$_POST["addFirst"]}', '{$_POST["addFirstNVA"]}', '{$_POST["addSecond"]}', '{$_POST["addSecondNVA"]}')";
+        mysqli_query($db, $query) or die("Final Prescription Query Failed: " . mysqli_error($db));
 
 
         // Insert into oldRX table
