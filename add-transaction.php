@@ -287,9 +287,6 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
 
                                         <!-- Lens Brand -->
 
-
-
-
                                         <div class="row mt-4">
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">LENS BRAND:</label>
@@ -308,7 +305,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">TOTAL AMOUNT:</label>
-                                                <input type="text" name="total_amount" class="form-control">
+                                                <input type="number" name="total_amount" class="form-control">
                                             </div>
                                         </div>
 
@@ -337,7 +334,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                                 <input type="text" name="old_os" class="form-control">
                                             </div>
                                             <div class="col-md-2">
-                                                <label class="form-label">VAsc:</label>
+                                                <label class="form-label">VA:</label>
                                                 <input type="number" name="old_osVA" class="form-control">
                                             </div>
 
@@ -347,11 +344,11 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row mt-2">
                                             <div class="col-md-6">
                                                 <label class="form-label">ADD:</label>
-                                                <input type="text" name="old_addFirst" class="form-control">
+                                                <input type="text" name="old_add" class="form-control">
                                             </div>
                                             <div class="col-md-2">
-                                                <label class="form-label">N.VA</label>
-                                                <input type="number" name="old_addFirstNVA" class="form-control">
+                                                <label class="form-label">VA</label>
+                                                <input type="number" name="old_addVA" class="form-control">
                                             </div>
 
                                         </div>
@@ -740,6 +737,89 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                                     <input type="text" name="iop_os" class="form-control" placeholder="Enter OS value">
                                                 </div>
                                             </div>
+
+                                            <!-- Slit Lamp Examination Section -->
+                                            <h4 class="mt-4 mb-3">Slit Lamp Examination</h4>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Lids Left:</label>
+                                                    <input type="text" name="LIDS_LEFT" class="form-control">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Lids Right:</label>
+                                                    <input type="text" name="LIDS_RIGHT" class="form-control">
+                                                </div>
+
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Lashes Left:</label>
+                                                    <input type="text" name="LASHES_LEFT" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Lashes Right:</label>
+                                                    <input type="text" name="LASHES_RIGHT" class="form-control">
+                                                </div>
+
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Conjunctiva Left:</label>
+                                                    <input type="text" name="CONJUNCTIVA_LEFT" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Conjunctiva Right:</label>
+                                                    <input type="text" name="CONJUNCTIVA_RIGHT" class="form-control">
+                                                </div>
+
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Cornea Left:</label>
+                                                    <input type="text" name="CORNEA_LEFT" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Cornea Right:</label>
+                                                    <input type="text" name="CORNEA_RIGHT" class="form-control">
+                                                </div>
+
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Iris Left:</label>
+                                                    <input type="text" name="IRIS_LEFT" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Iris Right:</label>
+                                                    <input type="text" name="IRIS_RIGHT" class="form-control">
+                                                </div>
+
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">AC Left:</label>
+                                                    <input type="text" name="AC_LEFT" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">AC Right:</label>
+                                                    <input type="text" name="AC_RIGHT" class="form-control">
+                                                </div>
+
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Lens Left:</label>
+                                                    <input type="text" name="LENS_LEFT" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">Lens Right:</label>
+                                                    <input type="text" name="LENS_RIGHT" class="form-control">
+                                                </div>
+
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">IOP Left (OS):</label>
+                                                    <input type="text" name="IOP_LEFT" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 mt-3">
+                                                    <label class="form-label">IOP Right (OD):</label>
+                                                    <input type="text" name="IOP_RIGHT" class="form-control">
+                                                </div>
+
+                                                <div class="col-12 mt-4">
+                                                    <label class="form-label">Clinical Notes:</label>
+                                                    <textarea name="CLINICAL_NOTES" class="form-control" rows="4" placeholder="Enter clinical notes here..."></textarea>
+                                                </div>
+                                            </div>
+
                                         </div>
 
 

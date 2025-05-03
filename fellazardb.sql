@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 23, 2025 at 03:05 PM
+-- Generation Time: May 03, 2025 at 05:07 PM
 -- Server version: 8.2.0
 -- PHP Version: 7.4.33
 
@@ -50,7 +50,7 @@ INSERT INTO `admin` (`adminID`, `adminUsername`, `adminPassword`) VALUES
 
 DROP TABLE IF EXISTS `chiefcomplaint`;
 CREATE TABLE IF NOT EXISTS `chiefcomplaint` (
-  `chiefComplaintId` int NOT NULL,
+  `chiefComplaintId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `BOV_FAR` int DEFAULT '0',
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `diagnosis` (
 
 DROP TABLE IF EXISTS `digitalhistory`;
 CREATE TABLE IF NOT EXISTS `digitalhistory` (
-  `digitalHistoryId` int NOT NULL,
+  `digitalHistoryId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `noOfHours` int DEFAULT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `digitalhistory` (
 
 DROP TABLE IF EXISTS `dominanteye`;
 CREATE TABLE IF NOT EXISTS `dominanteye` (
-  `dominantEyeId` int NOT NULL,
+  `dominantEyeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `OD` int DEFAULT '0',
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `frameparameters` (
 
 DROP TABLE IF EXISTS `iop`;
 CREATE TABLE IF NOT EXISTS `iop` (
-  `iopId` int NOT NULL,
+  `iopId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `OD` decimal(5,2) DEFAULT NULL,
@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `iop` (
 
 DROP TABLE IF EXISTS `lensprice`;
 CREATE TABLE IF NOT EXISTS `lensprice` (
-  `lensPriceId` int NOT NULL,
+  `lensPriceId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `lensBrand` varchar(255) DEFAULT NULL,
@@ -206,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `lensprice` (
 
 DROP TABLE IF EXISTS `lenstype`;
 CREATE TABLE IF NOT EXISTS `lenstype` (
-  `lensTypeId` int NOT NULL,
+  `lensTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int NOT NULL,
   `date` date NOT NULL,
   `SV` int DEFAULT '0',
@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `lenstype` (
 
 DROP TABLE IF EXISTS `medicalhistory`;
 CREATE TABLE IF NOT EXISTS `medicalhistory` (
-  `medicalHistoryId` int NOT NULL,
+  `medicalHistoryId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `HYPERTENSION` int DEFAULT '0',
@@ -252,11 +252,10 @@ CREATE TABLE IF NOT EXISTS `medicalhistory` (
 
 DROP TABLE IF EXISTS `monobinopd`;
 CREATE TABLE IF NOT EXISTS `monobinopd` (
-  `monoBinoPDid` int NOT NULL,
+  `monoBinoPDid` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `MONO` decimal(5,2) DEFAULT NULL,
-  `BINO` decimal(5,2) DEFAULT NULL,
+  `MONOBINO` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`monoBinoPDid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -268,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `monobinopd` (
 
 DROP TABLE IF EXISTS `npa`;
 CREATE TABLE IF NOT EXISTS `npa` (
-  `npaId` int NOT NULL,
+  `npaId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `OD` decimal(5,2) DEFAULT NULL,
@@ -285,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `npa` (
 
 DROP TABLE IF EXISTS `npa_age`;
 CREATE TABLE IF NOT EXISTS `npa_age` (
-  `npaAgeId` int NOT NULL,
+  `npaAgeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `MIN` decimal(5,2) DEFAULT NULL,
@@ -302,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `npa_age` (
 
 DROP TABLE IF EXISTS `npc`;
 CREATE TABLE IF NOT EXISTS `npc` (
-  `npcId` int NOT NULL,
+  `npcId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `BREAK` decimal(5,2) DEFAULT NULL,
@@ -318,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `npc` (
 
 DROP TABLE IF EXISTS `occupationalhistory`;
 CREATE TABLE IF NOT EXISTS `occupationalhistory` (
-  `occupationalHistoryId` int NOT NULL,
+  `occupationalHistoryId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `NON_WORKING` int DEFAULT '0',
@@ -339,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `occupationalhistory` (
 
 DROP TABLE IF EXISTS `ocularhistory`;
 CREATE TABLE IF NOT EXISTS `ocularhistory` (
-  `ocularHistoryId` int NOT NULL,
+  `ocularHistoryId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `GLAUCOMA` int DEFAULT '0',
@@ -359,7 +358,7 @@ CREATE TABLE IF NOT EXISTS `ocularhistory` (
 
 DROP TABLE IF EXISTS `oldframetypes`;
 CREATE TABLE IF NOT EXISTS `oldframetypes` (
-  `oldFrameTypeId` int NOT NULL,
+  `oldFrameTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `value` varchar(255) NOT NULL,
@@ -374,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `oldframetypes` (
 
 DROP TABLE IF EXISTS `oldlenstype`;
 CREATE TABLE IF NOT EXISTS `oldlenstype` (
-  `oldlensTypeId` int NOT NULL,
+  `oldlensTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int NOT NULL,
   `date` date NOT NULL,
   `SV` int DEFAULT '0',
@@ -421,7 +420,7 @@ CREATE TABLE IF NOT EXISTS `oldrx` (
 
 DROP TABLE IF EXISTS `patientcontactlenstypes`;
 CREATE TABLE IF NOT EXISTS `patientcontactlenstypes` (
-  `patientContactLensTypeId` int NOT NULL,
+  `patientContactLensTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `value` varchar(255) NOT NULL,
@@ -436,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `patientcontactlenstypes` (
 
 DROP TABLE IF EXISTS `patientframetype`;
 CREATE TABLE IF NOT EXISTS `patientframetype` (
-  `patientFrameTypeId` int NOT NULL,
+  `patientFrameTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `value` varchar(255) NOT NULL,
@@ -476,7 +475,7 @@ INSERT INTO `patients` (`patientId`, `name`, `address`, `age`, `gender`, `contac
 
 DROP TABLE IF EXISTS `pupilsize`;
 CREATE TABLE IF NOT EXISTS `pupilsize` (
-  `pupilSizeId` int NOT NULL,
+  `pupilSizeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `OD` decimal(5,2) DEFAULT NULL,
@@ -508,7 +507,7 @@ CREATE TABLE IF NOT EXISTS `retinoscopy` (
 
 DROP TABLE IF EXISTS `slitlampexamination`;
 CREATE TABLE IF NOT EXISTS `slitlampexamination` (
-  `slitLampExaminationId` int NOT NULL,
+  `slitLampExaminationId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
   `LIDS_LEFT` decimal(5,2) DEFAULT NULL,
