@@ -74,7 +74,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VAsc:</label>
-                                                <input type="number" name="odVAsc" class="form-control">
+                                                <input type="text" name="odVAsc" class="form-control">
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">PH:</label>
@@ -82,7 +82,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VAcc:</label>
-                                                <input type="number" name="odVAcc" class="form-control">
+                                                <input type="text" name="odVAcc" class="form-control">
                                             </div>
                                         </div>
 
@@ -113,7 +113,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">N.VA</label>
-                                                <input type="number" name="addFirstNVA" class="form-control">
+                                                <input type="text" name="addFirstNVA" class="form-control">
                                             </div>
 
                                         </div>
@@ -324,7 +324,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VA:</label>
-                                                <input type="number" name="old_odVA" class="form-control">
+                                                <input type="text" name="old_odVA" class="form-control">
                                             </div>
                                         </div>
 
@@ -335,7 +335,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VA:</label>
-                                                <input type="number" name="old_osVA" class="form-control">
+                                                <input type="text" name="old_osVA" class="form-control">
                                             </div>
 
 
@@ -348,7 +348,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VA</label>
-                                                <input type="number" name="old_addVA" class="form-control">
+                                                <input type="text" name="old_addVA" class="form-control">
                                             </div>
 
                                         </div>
@@ -364,7 +364,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                                     <input type="checkbox" name="old_sv" value="1" class="form-check-input"> SV
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_" value="0">
+                                                    <input type="hidden" name="old_anti_rad" value="0">
                                                     <input type="checkbox" name="old_anti_rad" value="1" class="form-check-input"> Anti Rad
                                                 </div>
                                                 <div class="form-check">
@@ -388,7 +388,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_" value="0">
+                                                    <input type="hidden" name="old_digital" value="0">
                                                     <input type="checkbox" name="old_digital" value="1" class="form-check-input"> Digital
                                                 </div>
                                                 <div class="form-check">
@@ -425,7 +425,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                                 <option value="Plastic">Plastic</option>
                                                 <option value="Full Rim">Full Rim</option>
                                                 <option value="Semi Rimless">Semi Rimless</option>
-                                                <option value="Semi Rimless">Rimless</option>
+                                                <option value="Rimless">Rimless</option>
                                             </select>
                                         </div>
 
