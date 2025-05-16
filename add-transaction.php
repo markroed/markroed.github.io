@@ -159,57 +159,45 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="sv" value="0">
                                                     <input type="checkbox" name="sv" value="1" class="form-check-input"> SV
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="anti_rad" value="0">
                                                     <input type="checkbox" name="anti_rad" value="1" class="form-check-input"> Anti Rad
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="mc" value="0">
                                                     <input type="checkbox" name="mc" value="1" class="form-check-input"> MC
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="kk" value="0">
                                                     <input type="checkbox" name="kk" value="1" class="form-check-input"> KK
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="ft" value="0">
                                                     <input type="checkbox" name="ft" value="1" class="form-check-input"> FT
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="pal" value="0">
                                                     <input type="checkbox" name="pal" value="1" class="form-check-input"> PAL
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="digital" value="0">
                                                     <input type="checkbox" name="digital" value="1" class="form-check-input"> Digital
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="eyezen" value="0">
                                                     <input type="checkbox" name="eyezen" value="1" class="form-check-input"> Eyezen
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="photo" value="0">
                                                     <input type="checkbox" name="photo" value="1" class="form-check-input"> Photo
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="trans" value="0">
                                                     <input type="checkbox" name="trans" value="1" class="form-check-input"> Trans
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="blue_lens" value="0">
                                                     <input type="checkbox" name="blue_lens" value="1" class="form-check-input"> Blue Lens
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="tint_colored" value="0">
                                                     <input type="checkbox" name="tint_colored" value="1" class="form-check-input"> Tint/Colored
                                                 </div>
                                             </div>
@@ -360,57 +348,45 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_sv" value="0">
                                                     <input type="checkbox" name="old_sv" value="1" class="form-check-input"> SV
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_anti_rad" value="0">
                                                     <input type="checkbox" name="old_anti_rad" value="1" class="form-check-input"> Anti Rad
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_mc" value="0">
                                                     <input type="checkbox" name="old_mc" value="1" class="form-check-input"> MC
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_kk" value="0">
                                                     <input type="checkbox" name="old_kk" value="1" class="form-check-input"> KK
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_ft" value="0">
                                                     <input type="checkbox" name="old_ft" value="1" class="form-check-input"> FT
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_pal" value="0">
                                                     <input type="checkbox" name="old_pal" value="1" class="form-check-input"> PAL
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_digital" value="0">
                                                     <input type="checkbox" name="old_digital" value="1" class="form-check-input"> Digital
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_eyezen" value="0">
                                                     <input type="checkbox" name="old_eyezen" value="1" class="form-check-input"> Eyezen
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_photo" value="0">
                                                     <input type="checkbox" name="old_photo" value="1" class="form-check-input"> Photo
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_trans" value="0">
                                                     <input type="checkbox" name="old_trans" value="1" class="form-check-input"> Trans
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_blue_lens" value="0">
                                                     <input type="checkbox" name="old_blue_lens" value="1" class="form-check-input"> Blue Lens
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_tint_colored" value="0">
                                                     <input type="checkbox" name="old_tint_colored" value="1" class="form-check-input"> Tint/Colored
                                                 </div>
                                             </div>
@@ -437,45 +413,36 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="BOV_FAR" value="0">
                                                     <input type="checkbox" name="BOV_FAR" value="1" class="form-check-input"> BOV (Far)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="BOV_NEAR" value="0">
                                                     <input type="checkbox" name="BOV_NEAR" value="1" class="form-check-input"> BOV (Near)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="HEADACHE" value="0">
                                                     <input type="checkbox" name="HEADACHE" value="1" class="form-check-input"> Headache
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="DOUBLE_VISION" value="0">
                                                     <input type="checkbox" name="DOUBLE_VISION" value="1" class="form-check-input"> Double Vision
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="GLARING" value="0">
                                                     <input type="checkbox" name="GLARING" value="1" class="form-check-input"> Glaring
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="ITCHY_EYES" value="0">
                                                     <input type="checkbox" name="ITCHY_EYES" value="1" class="form-check-input"> Itchy Eyes
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="REDNESS" value="0">
                                                     <input type="checkbox" name="REDNESS" value="1" class="form-check-input"> Redness
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="LACRIMATION" value="0">
                                                     <input type="checkbox" name="LACRIMATION" value="1" class="form-check-input"> Lacrimation
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="DRY_EYE" value="0">
                                                     <input type="checkbox" name="DRY_EYE" value="1" class="form-check-input"> Dry Eye
                                                 </div>
                                             </div>
@@ -486,33 +453,27 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="GLAUCOMA" value="0">
                                                     <input type="checkbox" name="GLAUCOMA" value="1" class="form-check-input"> Glaucoma
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="CATARACT" value="0">
                                                     <input type="checkbox" name="CATARACT" value="1" class="form-check-input"> Cataract
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="RETINA" value="0">
                                                     <input type="checkbox" name="RETINA" value="1" class="form-check-input"> Retina
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="MACULA" value="0">
                                                     <input type="checkbox" name="MACULA" value="1" class="form-check-input"> Macula
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="INJURIES" value="0">
                                                     <input type="checkbox" name="INJURIES" value="1" class="form-check-input"> Injuries
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="OTHERS" value="0">
                                                     <input type="checkbox" name="OTHERS" value="1" class="form-check-input"> Others
                                                 </div>
                                             </div>
@@ -524,37 +485,30 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="NON_WORKING" value="0">
                                                     <input type="checkbox" name="NON_WORKING" value="1" class="form-check-input"> Non-Working
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="WORKING" value="0">
                                                     <input type="checkbox" name="WORKING" value="1" class="form-check-input"> Working
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="FIELD" value="0">
                                                     <input type="checkbox" name="FIELD" value="1" class="form-check-input"> Field
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="OFFICE" value="0">
                                                     <input type="checkbox" name="OFFICE" value="1" class="form-check-input"> Office
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="WFH" value="0">
                                                     <input type="checkbox" name="WFH" value="1" class="form-check-input"> Work From Home (WFH)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="BUSINESS" value="0">
                                                     <input type="checkbox" name="BUSINESS" value="1" class="form-check-input"> Business
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="STUDYING" value="0">
                                                     <input type="checkbox" name="STUDYING" value="1" class="form-check-input"> Studying
                                                 </div>
                                             </div>
@@ -565,33 +519,27 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="HYPERTENSION" value="0">
                                                     <input type="checkbox" name="HYPERTENSION" value="1" class="form-check-input"> Hypertension
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="DIABETES" value="0">
                                                     <input type="checkbox" name="DIABETES" value="1" class="form-check-input"> Diabetes
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="CVD" value="0">
                                                     <input type="checkbox" name="CVD" value="1" class="form-check-input"> Cardiovascular Disease (CVD)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="ASTHMA" value="0">
                                                     <input type="checkbox" name="ASTHMA" value="1" class="form-check-input"> Asthma
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="ALLERGIES" value="0">
                                                     <input type="checkbox" name="ALLERGIES" value="1" class="form-check-input"> Allergies
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="OTHERS" value="0">
                                                     <input type="checkbox" name="OTHERS" value="1" class="form-check-input"> Others
                                                 </div>
                                             </div>
@@ -617,22 +565,18 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row mt-3">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="LAPTOP" value="0">
                                                     <input type="checkbox" name="LAPTOP" value="1" class="form-check-input"> Laptop
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="MOBILE" value="0">
                                                     <input type="checkbox" name="MOBILE" value="1" class="form-check-input"> Mobile
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="DESKTOP" value="0">
                                                     <input type="checkbox" name="DESKTOP" value="1" class="form-check-input"> Desktop
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="TELEVISION" value="0">
                                                     <input type="checkbox" name="TELEVISION" value="1" class="form-check-input"> Television
                                                 </div>
                                             </div>

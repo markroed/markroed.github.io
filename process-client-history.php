@@ -63,7 +63,7 @@ VALUES ('$patientId', '$date', '{$_POST["frame_type"]}')";
 
         // Insert into oldRX table oldRXId	date	oldRXDate	patientId	oldOD	oldODVA	oldOS	oldOSVA	oldADD	oldADDVA	
         $query = "INSERT INTO oldrx (date, oldRXdate, patientId, oldOD, oldODVA, oldOS, oldOSVA, oldADD, oldADDVA) 
-              VALUES ('$patientId', '$date', '{$_POST["oldRXdate"]}', '{$_POST["old_od"]}', '{$_POST["old_odVA"]}', 
+              VALUES ('$date', '{$_POST["oldRXdate"]}','$patientId', '{$_POST["old_od"]}', '{$_POST["old_odVA"]}', 
                       '{$_POST["old_os"]}', '{$_POST["old_osVA"]}', '{$_POST["old_add"]}', '{$_POST["old_addVA"]}')";
         mysqli_query($db, $query) or die("Old RX Query Failed: " . mysqli_error($db));
 

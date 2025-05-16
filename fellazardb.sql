@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 03, 2025 at 05:07 PM
--- Server version: 8.2.0
--- PHP Version: 7.4.33
+-- Generation Time: May 16, 2025 at 03:57 AM
+-- Server version: 8.0.40
+-- PHP Version: 8.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -510,22 +510,22 @@ CREATE TABLE IF NOT EXISTS `slitlampexamination` (
   `slitLampExaminationId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `LIDS_LEFT` decimal(5,2) DEFAULT NULL,
-  `LIDS_RIGHT` decimal(5,2) DEFAULT NULL,
-  `LASHES_LEFT` decimal(5,2) DEFAULT NULL,
-  `LASHES_RIGHT` decimal(5,2) DEFAULT NULL,
-  `CONJUNCTIVA_LEFT` decimal(5,2) DEFAULT NULL,
-  `CONJUNCTIVA_RIGHT` decimal(5,2) DEFAULT NULL,
-  `CORNEA_LEFT` decimal(5,2) DEFAULT NULL,
-  `CORNEA_RIGHT` decimal(5,2) DEFAULT NULL,
-  `IRIS_LEFT` decimal(5,2) DEFAULT NULL,
-  `IRIS_RIGHT` decimal(5,2) DEFAULT NULL,
-  `AC_LEFT` decimal(5,2) DEFAULT NULL,
-  `AC_RIGHT` decimal(5,2) DEFAULT NULL,
-  `LENS_LEFT` decimal(5,2) DEFAULT NULL,
-  `LENS_RIGHT` decimal(5,2) DEFAULT NULL,
-  `IOP_LEFT` decimal(5,2) DEFAULT NULL,
-  `IOP_RIGHT` decimal(5,2) DEFAULT NULL,
+  `LIDS_LEFT` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `LIDS_RIGHT` text,
+  `LASHES_LEFT` text,
+  `LASHES_RIGHT` text,
+  `CONJUNCTIVA_LEFT` text,
+  `CONJUNCTIVA_RIGHT` text,
+  `CORNEA_LEFT` text,
+  `CORNEA_RIGHT` text,
+  `IRIS_LEFT` text,
+  `IRIS_RIGHT` text,
+  `AC_LEFT` text,
+  `AC_RIGHT` text,
+  `LENS_LEFT` text,
+  `LENS_RIGHT` text,
+  `IOP_LEFT` text,
+  `IOP_RIGHT` text,
   `CLINICAL_NOTES` text,
   PRIMARY KEY (`slitLampExaminationId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
