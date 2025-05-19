@@ -54,7 +54,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         </a>
                                     <?php } ?>
                                 </div>
-                                
+
 
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -82,7 +82,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                                         echo "<tr>";
                                                         echo "<td>" . htmlspecialchars($row['name']) . "</td>";
                                                         echo "<td>" . htmlspecialchars($row['date']) . "</td>";
-                                                        echo "<td><a href='view-transaction.php?patient_id=" . $row['patientId'] . "' class='btn btn-primary btn-sm'>OPEN</a></td>";
+                                                        echo "<td><a href='view-transaction.php?patient_id=" . $row['patientId'] . "&date=" . $row['date'] . "' class='btn btn-primary btn-sm'>OPEN</a></td>";
                                                         echo "</tr>";
                                                     }
                                                 } else {
