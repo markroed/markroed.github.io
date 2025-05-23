@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 16, 2025 at 03:57 AM
+-- Generation Time: May 23, 2025 at 08:44 AM
 -- Server version: 8.0.40
 -- PHP Version: 8.3.14
 
@@ -63,7 +63,15 @@ CREATE TABLE IF NOT EXISTS `chiefcomplaint` (
   `LACRIMATION` int DEFAULT '0',
   `DRY_EYE` int DEFAULT '0',
   PRIMARY KEY (`chiefComplaintId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `chiefcomplaint`
+--
+
+INSERT INTO `chiefcomplaint` (`chiefComplaintId`, `patientId`, `date`, `BOV_FAR`, `BOV_NEAR`, `HEADACHE`, `DOUBLE_VISION`, `GLARING`, `ITCHY_EYES`, `REDNESS`, `LACRIMATION`, `DRY_EYE`) VALUES
+(1, 1, '2025-05-16', 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -79,7 +87,15 @@ CREATE TABLE IF NOT EXISTS `diagnosis` (
   `diagnosisOD` varchar(255) DEFAULT NULL,
   `diagnosisOS` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`diagnosisId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `diagnosis`
+--
+
+INSERT INTO `diagnosis` (`diagnosisId`, `date`, `patientId`, `diagnosisOD`, `diagnosisOS`) VALUES
+(1, '2025-05-16', 1, '3123', '31'),
+(2, '2025-05-19', 1, 'OD', '5');
 
 -- --------------------------------------------------------
 
@@ -99,7 +115,15 @@ CREATE TABLE IF NOT EXISTS `digitalhistory` (
   `TELEVISION` int DEFAULT '0',
   `sleepHours` int DEFAULT NULL,
   PRIMARY KEY (`digitalHistoryId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `digitalhistory`
+--
+
+INSERT INTO `digitalhistory` (`digitalHistoryId`, `patientId`, `date`, `noOfHours`, `LAPTOP`, `MOBILE`, `DESKTOP`, `TELEVISION`, `sleepHours`) VALUES
+(1, 1, '2025-05-16', 1, 1, 0, 0, 0, 321),
+(2, 1, '2025-05-19', 5, 1, 0, 0, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -115,7 +139,15 @@ CREATE TABLE IF NOT EXISTS `dominanteye` (
   `OD` int DEFAULT '0',
   `OS` int DEFAULT '0',
   PRIMARY KEY (`dominantEyeId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `dominanteye`
+--
+
+INSERT INTO `dominanteye` (`dominantEyeId`, `patientId`, `date`, `OD`, `OS`) VALUES
+(1, 1, '2025-05-16', 5, 5),
+(2, 1, '2025-05-19', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -141,7 +173,15 @@ CREATE TABLE IF NOT EXISTS `finalprescriptions` (
   `addSecond` varchar(50) NOT NULL,
   `addSecondNVA` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`prescriptionId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `finalprescriptions`
+--
+
+INSERT INTO `finalprescriptions` (`prescriptionId`, `patientId`, `date`, `od`, `odPh`, `odVasc`, `odVacc`, `os`, `osVacc`, `osVasc`, `osPh`, `addFirst`, `addFirstNVA`, `addSecond`, `addSecondNVA`) VALUES
+(1, 1, '2025-05-16', '13', '131', '13', '3131', '312', '13', '123121', '313', '31', '31313', '3', '13123'),
+(2, 1, '2025-05-19', 'OD', '5', 'VAsc', 'Vacc', 'OS', '5', '5', '5', 'ADD', 'NVA', 'ADD2', '5');
 
 -- --------------------------------------------------------
 
@@ -162,7 +202,15 @@ CREATE TABLE IF NOT EXISTS `frameparameters` (
   `effectiveDIA` varchar(255) DEFAULT NULL,
   `monoBinoPD` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`frameParameterId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `frameparameters`
+--
+
+INSERT INTO `frameparameters` (`frameParameterId`, `patientId`, `date`, `hor`, `ver`, `nbl`, `fittingH`, `segmentH`, `effectiveDIA`, `monoBinoPD`) VALUES
+(1, 1, '2025-05-16', '31', '13', '312', '23', '22', '2', '321313'),
+(2, 1, '2025-05-19', 'HOR', 'VER', 'NBL', 'FITTING H', 'SEGMENT H', 'EFFECTIVE DIA', 'MONO/BINO PD');
 
 -- --------------------------------------------------------
 
@@ -178,7 +226,15 @@ CREATE TABLE IF NOT EXISTS `iop` (
   `OD` decimal(5,2) DEFAULT NULL,
   `OS` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`iopId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `iop`
+--
+
+INSERT INTO `iop` (`iopId`, `patientId`, `date`, `OD`, `OS`) VALUES
+(1, 1, '2025-05-16', 31.00, 312.00),
+(2, 1, '2025-05-19', 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -196,7 +252,15 @@ CREATE TABLE IF NOT EXISTS `lensprice` (
   `contactLensPrice` int DEFAULT NULL,
   `totalAmount` int DEFAULT NULL,
   PRIMARY KEY (`lensPriceId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `lensprice`
+--
+
+INSERT INTO `lensprice` (`lensPriceId`, `patientId`, `date`, `lensBrand`, `lensPrice`, `contactLensPrice`, `totalAmount`) VALUES
+(1, 1, '2025-05-16', '313', 2, 12321, 231),
+(2, 1, '2025-05-19', 'Adidas', 100, 100, 200);
 
 -- --------------------------------------------------------
 
@@ -222,7 +286,15 @@ CREATE TABLE IF NOT EXISTS `lenstype` (
   `BLUE_LENS` int DEFAULT '0',
   `TINT_COLORED` int DEFAULT '0',
   PRIMARY KEY (`lensTypeId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `lenstype`
+--
+
+INSERT INTO `lenstype` (`lensTypeId`, `patientId`, `date`, `SV`, `ANTI_RAD`, `MC`, `KK`, `FT`, `PAL`, `DIGITAL`, `EYEZEN`, `PHOTO`, `TRANS`, `BLUE_LENS`, `TINT_COLORED`) VALUES
+(1, 1, '2025-05-16', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -242,7 +314,15 @@ CREATE TABLE IF NOT EXISTS `medicalhistory` (
   `ALLERGIES` int DEFAULT '0',
   `OTHERS` int DEFAULT '0',
   PRIMARY KEY (`medicalHistoryId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `medicalhistory`
+--
+
+INSERT INTO `medicalhistory` (`medicalHistoryId`, `patientId`, `date`, `HYPERTENSION`, `DIABETES`, `CVD`, `ASTHMA`, `ALLERGIES`, `OTHERS`) VALUES
+(1, 1, '2025-05-16', 1, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -257,7 +337,15 @@ CREATE TABLE IF NOT EXISTS `monobinopd` (
   `date` date DEFAULT NULL,
   `MONOBINO` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`monoBinoPDid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `monobinopd`
+--
+
+INSERT INTO `monobinopd` (`monoBinoPDid`, `patientId`, `date`, `MONOBINO`) VALUES
+(1, 1, '2025-05-16', 999.99),
+(2, 1, '2025-05-19', 0.00);
 
 -- --------------------------------------------------------
 
@@ -274,7 +362,15 @@ CREATE TABLE IF NOT EXISTS `npa` (
   `OS` decimal(5,2) DEFAULT NULL,
   `OU` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`npaId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `npa`
+--
+
+INSERT INTO `npa` (`npaId`, `patientId`, `date`, `OD`, `OS`, `OU`) VALUES
+(1, 1, '2025-05-16', 2.00, 2.00, 2.00),
+(2, 1, '2025-05-19', 0.00, 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -291,7 +387,15 @@ CREATE TABLE IF NOT EXISTS `npa_age` (
   `AVE` decimal(5,2) DEFAULT NULL,
   `MAX` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`npaAgeId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `npa_age`
+--
+
+INSERT INTO `npa_age` (`npaAgeId`, `patientId`, `date`, `MIN`, `AVE`, `MAX`) VALUES
+(1, 1, '2025-05-16', 123.00, 13.00, 13.00),
+(2, 1, '2025-05-19', 5.00, 5.00, 5.00);
 
 -- --------------------------------------------------------
 
@@ -307,7 +411,15 @@ CREATE TABLE IF NOT EXISTS `npc` (
   `BREAK` decimal(5,2) DEFAULT NULL,
   `RECOVERY` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`npcId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `npc`
+--
+
+INSERT INTO `npc` (`npcId`, `patientId`, `date`, `BREAK`, `RECOVERY`) VALUES
+(1, 1, '2025-05-16', 999.99, 999.99),
+(2, 1, '2025-05-19', 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -328,7 +440,15 @@ CREATE TABLE IF NOT EXISTS `occupationalhistory` (
   `BUSINESS` int DEFAULT '0',
   `STUDYING` int DEFAULT '0',
   PRIMARY KEY (`occupationalHistoryId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `occupationalhistory`
+--
+
+INSERT INTO `occupationalhistory` (`occupationalHistoryId`, `patientId`, `date`, `NON_WORKING`, `WORKING`, `FIELD`, `OFFICE`, `WFH`, `BUSINESS`, `STUDYING`) VALUES
+(1, 1, '2025-05-16', 1, 0, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19', 1, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -348,7 +468,15 @@ CREATE TABLE IF NOT EXISTS `ocularhistory` (
   `INJURIES` int DEFAULT '0',
   `OTHERS` int DEFAULT '0',
   PRIMARY KEY (`ocularHistoryId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `ocularhistory`
+--
+
+INSERT INTO `ocularhistory` (`ocularHistoryId`, `patientId`, `date`, `GLAUCOMA`, `CATARACT`, `RETINA`, `MACULA`, `INJURIES`, `OTHERS`) VALUES
+(1, 1, '2025-05-16', 1, 1, 0, 0, 0, 0),
+(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -363,7 +491,15 @@ CREATE TABLE IF NOT EXISTS `oldframetypes` (
   `date` date DEFAULT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`oldFrameTypeId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `oldframetypes`
+--
+
+INSERT INTO `oldframetypes` (`oldFrameTypeId`, `patientId`, `date`, `value`) VALUES
+(1, 1, '2025-05-16', 'Plastic'),
+(2, 1, '2025-05-19', 'Rimless');
 
 -- --------------------------------------------------------
 
@@ -389,7 +525,15 @@ CREATE TABLE IF NOT EXISTS `oldlenstype` (
   `BLUE_LENS` int DEFAULT '0',
   `TINT_COLORED` int DEFAULT '0',
   PRIMARY KEY (`oldlensTypeId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `oldlenstype`
+--
+
+INSERT INTO `oldlenstype` (`oldlensTypeId`, `patientId`, `date`, `SV`, `ANTI_RAD`, `MC`, `KK`, `FT`, `PAL`, `DIGITAL`, `EYEZEN`, `PHOTO`, `TRANS`, `BLUE_LENS`, `TINT_COLORED`) VALUES
+(1, 1, '2025-05-16', 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -410,7 +554,15 @@ CREATE TABLE IF NOT EXISTS `oldrx` (
   `oldADD` varchar(255) DEFAULT NULL,
   `oldADDVA` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`oldRXId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oldrx`
+--
+
+INSERT INTO `oldrx` (`oldRXId`, `date`, `oldRXDate`, `patientId`, `oldOD`, `oldODVA`, `oldOS`, `oldOSVA`, `oldADD`, `oldADDVA`) VALUES
+(1, '2025-05-16', '2025-05-13', 1, '123', '123', '123', '131', '3131', '3123'),
+(2, '2025-05-19', '2025-05-12', 1, 'OD', 'VA', 'OS', 'VA', 'ADD', 'VA');
 
 -- --------------------------------------------------------
 
@@ -425,7 +577,15 @@ CREATE TABLE IF NOT EXISTS `patientcontactlenstypes` (
   `date` date DEFAULT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`patientContactLensTypeId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `patientcontactlenstypes`
+--
+
+INSERT INTO `patientcontactlenstypes` (`patientContactLensTypeId`, `patientId`, `date`, `value`) VALUES
+(1, 1, '2025-05-16', 'Conventional'),
+(2, 1, '2025-05-19', 'Colored');
 
 -- --------------------------------------------------------
 
@@ -440,7 +600,15 @@ CREATE TABLE IF NOT EXISTS `patientframetype` (
   `date` date DEFAULT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`patientFrameTypeId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `patientframetype`
+--
+
+INSERT INTO `patientframetype` (`patientFrameTypeId`, `patientId`, `date`, `value`) VALUES
+(1, 1, '2025-05-16', 'Plastic'),
+(2, 1, '2025-05-19', 'Rimless');
 
 -- --------------------------------------------------------
 
@@ -481,7 +649,15 @@ CREATE TABLE IF NOT EXISTS `pupilsize` (
   `OD` decimal(5,2) DEFAULT NULL,
   `OS` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`pupilSizeId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `pupilsize`
+--
+
+INSERT INTO `pupilsize` (`pupilSizeId`, `patientId`, `date`, `OD`, `OS`) VALUES
+(1, 1, '2025-05-16', 213.00, 999.99),
+(2, 1, '2025-05-19', 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -497,7 +673,15 @@ CREATE TABLE IF NOT EXISTS `retinoscopy` (
   `retinoscopyOD` varchar(255) DEFAULT NULL,
   `retinoscopyOS` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`retinoscopyId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `retinoscopy`
+--
+
+INSERT INTO `retinoscopy` (`retinoscopyId`, `date`, `patientId`, `retinoscopyOD`, `retinoscopyOS`) VALUES
+(1, '2025-05-16', 1, '13', '21'),
+(2, '2025-05-19', 1, 'OD', '5');
 
 -- --------------------------------------------------------
 
@@ -528,7 +712,15 @@ CREATE TABLE IF NOT EXISTS `slitlampexamination` (
   `IOP_RIGHT` text,
   `CLINICAL_NOTES` text,
   PRIMARY KEY (`slitLampExaminationId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `slitlampexamination`
+--
+
+INSERT INTO `slitlampexamination` (`slitLampExaminationId`, `patientId`, `date`, `LIDS_LEFT`, `LIDS_RIGHT`, `LASHES_LEFT`, `LASHES_RIGHT`, `CONJUNCTIVA_LEFT`, `CONJUNCTIVA_RIGHT`, `CORNEA_LEFT`, `CORNEA_RIGHT`, `IRIS_LEFT`, `IRIS_RIGHT`, `AC_LEFT`, `AC_RIGHT`, `LENS_LEFT`, `LENS_RIGHT`, `IOP_LEFT`, `IOP_RIGHT`, `CLINICAL_NOTES`) VALUES
+(1, 1, '2025-05-16', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '111'),
+(2, 1, '2025-05-19', 'Lids Left:', 'lids Right', 'Lashes Left', 'Lashes Right', 'Conjunctiva Left:', 'Conjunctiva Right:', 'c', '', '', '', '', '', '', '', '', '', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
