@@ -47,7 +47,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                                    <h6 class="m-0 font-weight-bold text-primary">Transaction</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Transaction List</h6>
                                     <?php if (isset($_GET['patient_id'])) { ?>
                                         <a href="add-transaction.php?patient_id=<?php echo $_GET['patient_id']; ?>" class="btn btn-success btn-sm">
                                             <i class="fas fa-plus"></i> Create Transaction

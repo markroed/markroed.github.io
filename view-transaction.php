@@ -8,8 +8,20 @@ date_default_timezone_set('Asia/Manila');
 $adminUsername = $_SESSION["adminUsername"];
 if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || empty($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == null) {
     echo "<script> window.location.replace('login.php') </script>";
+} else if (!isset($_GET['patient_id']) || !isset($_GET['date'])) {
+    die("Missing patient ID or date.");
 } else {
+
+    $patientId = $_GET['patient_id'];
+    $date = $_GET['date'];
+
+   include ("transaction-view-query.php");
+
+
+
 ?>
+
+
     <?php include 'pages/header.php'; ?>
 
 
@@ -45,7 +57,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                         <div class="container mt-4">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Add Transaction</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Transactions</h6>
                                 </div>
                                 <div class="card-body">
                                     <form action="process-client-history.php" method="POST">
