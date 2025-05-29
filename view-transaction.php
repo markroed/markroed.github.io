@@ -14,8 +14,8 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
 
     $patientId = $_GET['patient_id'];
     $date = $_GET['date'];
-
-   include ("transaction-view-query.php");
+    $pName = $_GET['name'];
+    include("transaction-view-query.php");
 
 
 
@@ -57,7 +57,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                         <div class="container mt-4">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Transactions</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Patient Information </h6>
                                 </div>
                                 <div class="card-body">
                                     <form action="process-client-history.php" method="POST">
@@ -66,11 +66,11 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
 
 
                                         <!-- Patient Information Section -->
-                                        <h4 class="mb-3">Patient Information</h4>
+                                        <h4 class="mb-3" style="text-transform: uppercase;"><?php echo $pName ?></h4>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <label class="form-label">Date:</label>
-                                                <input type="date" name="date" class="form-control" required value="<?php echo date('Y-m-d'); ?>">
+                                                <input type="date" name="date" class="form-control" value="<?php echo date('Y-m-d', strtotime($date)); ?>" readonly>
                                             </div>
                                         </div>
 
@@ -82,88 +82,84 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label">OD:</label>
-                                                <input type="text" name="od" class="form-control">
+                                                <input type="text" name="od" value="<?php echo $result_finalprescriptions['od']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VAsc:</label>
-                                                <input type="text" name="odVAsc" class="form-control">
+                                                <input type="text" name="odVAsc" value="<?php echo $result_finalprescriptions['odVasc']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">PH:</label>
-                                                <input type="number" name="odph" class="form-control">
+                                                <input type="text" name="odph" value="<?php echo $result_finalprescriptions['odPh']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VAcc:</label>
-                                                <input type="text" name="odVAcc" class="form-control">
+                                                <input type="text" name="odVAcc" value="<?php echo $result_finalprescriptions['odVacc']; ?>" readonly class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="row mt-2">
                                             <div class="col-md-6">
                                                 <label class="form-label">OS:</label>
-                                                <input type="text" name="os" class="form-control">
+                                                <input type="text" name="os" value="<?php echo $result_finalprescriptions['os']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VAsc:</label>
-                                                <input type="number" name="osVAsc" class="form-control">
+                                                <input type="text" name="osVAsc" value="<?php echo $result_finalprescriptions['osVasc']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">PH:</label>
-                                                <input type="number" name="osph" class="form-control">
+                                                <input type="text" name="osph" value="<?php echo $result_finalprescriptions['osPh']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-2">
                                                 <label class="form-label">VAcc:</label>
-                                                <input type="number" name="osVAcc" class="form-control">
+                                                <input type="text" name="osVAcc" value="<?php echo $result_finalprescriptions['osVacc']; ?>" readonly class="form-control">
                                             </div>
-
                                         </div>
 
                                         <div class="row mt-2">
                                             <div class="col-md-6">
                                                 <label class="form-label">ADD:</label>
-                                                <input type="text" name="addFirst" class="form-control">
+                                                <input type="text" name="addFirst" value="<?php echo $result_finalprescriptions['addFirst']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-2">
-                                                <label class="form-label">N.VA</label>
-                                                <input type="text" name="addFirstNVA" class="form-control">
+                                                <label class="form-label">N.VA:</label>
+                                                <input type="text" name="addFirstNVA" value="<?php echo $result_finalprescriptions['addFirstNVA']; ?>" readonly class="form-control">
                                             </div>
-
                                         </div>
+
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="form-label"></label>
-                                                <input type="text" name="addSecond" class="form-control">
+                                                <input type="text" name="addSecond" value="<?php echo $result_finalprescriptions['addSecond']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-2">
-                                                <label class="form-label"></label>
-                                                <input type="number" name="addSecondNVA" class="form-control">
+                                                <input type="text" name="addSecondNVA" value="<?php echo $result_finalprescriptions['addSecondNVA']; ?>" readonly class="form-control">
                                             </div>
                                         </div>
-
 
                                         <h4 class="mt-4">Retinoscopy</h4>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label">OD:</label>
-                                                <input type="text" name="retinoscopy_od" class="form-control">
+                                                <input type="text" name="retinoscopy_od" value="<?php echo $result_retinoscopy['retinoscopyOD']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">OS:</label>
-                                                <input type="number" name="retinoscopy_os" class="form-control">
+                                                <input type="text" name="retinoscopy_os" value="<?php echo $result_retinoscopy['retinoscopyOS']; ?>" readonly class="form-control">
                                             </div>
                                         </div>
+
                                         <h4 class="mt-4">Diagnosis</h4>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label">OD:</label>
-                                                <input type="text" name="diagnosis_od" class="form-control">
+                                                <input type="text" name="diagnosis_od" value="<?php echo $result_diagnosis['diagnosisOD']; ?>" readonly class="form-control">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label">OS:</label>
-                                                <input type="number" name="diagnosis_os" class="form-control">
+                                                <input type="text" name="diagnosis_os" value="<?php echo $result_diagnosis['diagnosisOS']; ?>" readonly class="form-control">
                                             </div>
                                         </div>
-
 
 
                                         <!-- Lens Type (Checklist) -->
@@ -171,61 +167,50 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="sv" value="0">
-                                                    <input type="checkbox" name="sv" value="1" class="form-check-input"> SV
+                                                    <input type="checkbox" name="sv" value="1" class="form-check-input" <?php if ($result_lenstype['SV'] == 1) echo 'checked'; ?> disabled> SV
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="anti_rad" value="0">
-                                                    <input type="checkbox" name="anti_rad" value="1" class="form-check-input"> Anti Rad
+                                                    <input type="checkbox" name="anti_rad" value="1" class="form-check-input" <?php if ($result_lenstype['ANTI_RAD'] == 1) echo 'checked'; ?> disabled> Anti Rad
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="mc" value="0">
-                                                    <input type="checkbox" name="mc" value="1" class="form-check-input"> MC
+                                                    <input type="checkbox" name="mc" value="1" class="form-check-input" <?php if ($result_lenstype['MC'] == 1) echo 'checked'; ?> disabled> MC
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="kk" value="0">
-                                                    <input type="checkbox" name="kk" value="1" class="form-check-input"> KK
+                                                    <input type="checkbox" name="kk" value="1" class="form-check-input" <?php if ($result_lenstype['KK'] == 1) echo 'checked'; ?> disabled> KK
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="ft" value="0">
-                                                    <input type="checkbox" name="ft" value="1" class="form-check-input"> FT
+                                                    <input type="checkbox" name="ft" value="1" class="form-check-input" <?php if ($result_lenstype['FT'] == 1) echo 'checked'; ?> disabled> FT
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="pal" value="0">
-                                                    <input type="checkbox" name="pal" value="1" class="form-check-input"> PAL
+                                                    <input type="checkbox" name="pal" value="1" class="form-check-input" <?php if ($result_lenstype['PAL'] == 1) echo 'checked'; ?> disabled> PAL
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="digital" value="0">
-                                                    <input type="checkbox" name="digital" value="1" class="form-check-input"> Digital
+                                                    <input type="checkbox" name="digital" value="1" class="form-check-input" <?php if ($result_lenstype['DIGITAL'] == 1) echo 'checked'; ?> disabled> Digital
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="eyezen" value="0">
-                                                    <input type="checkbox" name="eyezen" value="1" class="form-check-input"> Eyezen
+                                                    <input type="checkbox" name="eyezen" value="1" class="form-check-input" <?php if ($result_lenstype['EYEZEN'] == 1) echo 'checked'; ?> disabled> Eyezen
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="photo" value="0">
-                                                    <input type="checkbox" name="photo" value="1" class="form-check-input"> Photo
+                                                    <input type="checkbox" name="photo" value="1" class="form-check-input" <?php if ($result_lenstype['PHOTO'] == 1) echo 'checked'; ?> disabled> Photo
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="trans" value="0">
-                                                    <input type="checkbox" name="trans" value="1" class="form-check-input"> Trans
+                                                    <input type="checkbox" name="trans" value="1" class="form-check-input" <?php if ($result_lenstype['TRANS'] == 1) echo 'checked'; ?> disabled> Trans
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="blue_lens" value="0">
-                                                    <input type="checkbox" name="blue_lens" value="1" class="form-check-input"> Blue Lens
+                                                    <input type="checkbox" name="blue_lens" value="1" class="form-check-input" <?php if ($result_lenstype['BLUE_LENS'] == 1) echo 'checked'; ?> disabled> Blue Lens
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="tint_colored" value="0">
-                                                    <input type="checkbox" name="tint_colored" value="1" class="form-check-input"> Tint/Colored
+                                                    <input type="checkbox" name="tint_colored" value="1" class="form-check-input" <?php if ($result_lenstype['TINS_COLORED'] == 1) echo 'checked'; ?> disabled> Tint/Colored
                                                 </div>
                                             </div>
                                         </div>
+
 
 
                                         <!-- Frame Type (Options) -->
@@ -245,16 +230,18 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <!-- Contact Lens Type (Options) -->
                                         <h4 class="mt-4">Contact Lens Type</h4>
                                         <div class="mb-3">
-                                            <select name="contact_lens_type" class="form-control">
-                                                <option value="None" selected>None</option>
-                                                <option value="Dailies">Dailies</option>
-                                                <option value="Conventional">Conventional</option>
-                                                <option value="RGP">RGP</option>
-                                                <option value="Ortho K">Ortho K</option>
-                                                <option value="Multifocal">Multifocal</option>
-                                                <option value="Colored">Colored</option>
+                                            <select name="contact_lens_type" class="form-control" disabled>
+                                                <option value="None" <?php if ($result_patientcontactlenstypes['value'] == 'None') echo 'selected'; ?>>None</option>
+                                                <option value="Dailies" <?php if ($result_patientcontactlenstypes['value'] == 'Dailies') echo 'selected'; ?>>Dailies</option>
+                                                <option value="Conventional" <?php if ($result_patientcontactlenstypes['value'] == 'Conventional') echo 'selected'; ?>>Conventional</option>
+                                                <option value="RGP" <?php if ($result_patientcontactlenstypes['value'] == 'RGP') echo 'selected'; ?>>RGP</option>
+                                                <option value="Ortho K" <?php if ($result_patientcontactlenstypes['value'] == 'Ortho K') echo 'selected'; ?>>Ortho K</option>
+                                                <option value="Multifocal" <?php if ($result_patientcontactlenstypes['value'] == 'Multifocal') echo 'selected'; ?>>Multifocal</option>
+                                                <option value="Colored" <?php if ($result_patientcontactlenstypes['value'] == 'Colored') echo 'selected'; ?>>Colored</option>
                                             </select>
                                         </div>
+
+
 
 
                                         <!-- Frame Parameters -->
@@ -372,57 +359,45 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_sv" value="0">
                                                     <input type="checkbox" name="old_sv" value="1" class="form-check-input"> SV
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_anti_rad" value="0">
                                                     <input type="checkbox" name="old_anti_rad" value="1" class="form-check-input"> Anti Rad
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_mc" value="0">
                                                     <input type="checkbox" name="old_mc" value="1" class="form-check-input"> MC
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_kk" value="0">
                                                     <input type="checkbox" name="old_kk" value="1" class="form-check-input"> KK
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_ft" value="0">
                                                     <input type="checkbox" name="old_ft" value="1" class="form-check-input"> FT
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_pal" value="0">
                                                     <input type="checkbox" name="old_pal" value="1" class="form-check-input"> PAL
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_digital" value="0">
                                                     <input type="checkbox" name="old_digital" value="1" class="form-check-input"> Digital
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_eyezen" value="0">
                                                     <input type="checkbox" name="old_eyezen" value="1" class="form-check-input"> Eyezen
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_photo" value="0">
                                                     <input type="checkbox" name="old_photo" value="1" class="form-check-input"> Photo
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_trans" value="0">
                                                     <input type="checkbox" name="old_trans" value="1" class="form-check-input"> Trans
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_blue_lens" value="0">
                                                     <input type="checkbox" name="old_blue_lens" value="1" class="form-check-input"> Blue Lens
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="old_tint_colored" value="0">
                                                     <input type="checkbox" name="old_tint_colored" value="1" class="form-check-input"> Tint/Colored
                                                 </div>
                                             </div>
@@ -449,45 +424,36 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="BOV_FAR" value="0">
                                                     <input type="checkbox" name="BOV_FAR" value="1" class="form-check-input"> BOV (Far)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="BOV_NEAR" value="0">
                                                     <input type="checkbox" name="BOV_NEAR" value="1" class="form-check-input"> BOV (Near)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="HEADACHE" value="0">
                                                     <input type="checkbox" name="HEADACHE" value="1" class="form-check-input"> Headache
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="DOUBLE_VISION" value="0">
                                                     <input type="checkbox" name="DOUBLE_VISION" value="1" class="form-check-input"> Double Vision
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="GLARING" value="0">
                                                     <input type="checkbox" name="GLARING" value="1" class="form-check-input"> Glaring
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="ITCHY_EYES" value="0">
                                                     <input type="checkbox" name="ITCHY_EYES" value="1" class="form-check-input"> Itchy Eyes
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="REDNESS" value="0">
                                                     <input type="checkbox" name="REDNESS" value="1" class="form-check-input"> Redness
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="LACRIMATION" value="0">
                                                     <input type="checkbox" name="LACRIMATION" value="1" class="form-check-input"> Lacrimation
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="DRY_EYE" value="0">
                                                     <input type="checkbox" name="DRY_EYE" value="1" class="form-check-input"> Dry Eye
                                                 </div>
                                             </div>
@@ -498,33 +464,27 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="GLAUCOMA" value="0">
                                                     <input type="checkbox" name="GLAUCOMA" value="1" class="form-check-input"> Glaucoma
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="CATARACT" value="0">
                                                     <input type="checkbox" name="CATARACT" value="1" class="form-check-input"> Cataract
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="RETINA" value="0">
                                                     <input type="checkbox" name="RETINA" value="1" class="form-check-input"> Retina
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="MACULA" value="0">
                                                     <input type="checkbox" name="MACULA" value="1" class="form-check-input"> Macula
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="INJURIES" value="0">
                                                     <input type="checkbox" name="INJURIES" value="1" class="form-check-input"> Injuries
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="OTHERS" value="0">
                                                     <input type="checkbox" name="OTHERS" value="1" class="form-check-input"> Others
                                                 </div>
                                             </div>
@@ -536,38 +496,45 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="NON_WORKING" value="0">
-                                                    <input type="checkbox" name="NON_WORKING" value="1" class="form-check-input"> Non-Working
+                                                    <input type="checkbox" name="NON_WORKING" value="1" class="form-check-input"
+                                                        <?php if ($result_occupationalhistory['NON_WORKING'] == 1) echo 'checked'; ?> disabled>
+                                                    Non-Working
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="WORKING" value="0">
-                                                    <input type="checkbox" name="WORKING" value="1" class="form-check-input"> Working
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <input type="hidden" name="FIELD" value="0">
-                                                    <input type="checkbox" name="FIELD" value="1" class="form-check-input"> Field
-                                                </div>
-                                                <div class="form-check">
-                                                    <input type="hidden" name="OFFICE" value="0">
-                                                    <input type="checkbox" name="OFFICE" value="1" class="form-check-input"> Office
+                                                    <input type="checkbox" name="WORKING" value="1" class="form-check-input"
+                                                        <?php if ($result_occupationalhistory['WORKING'] == 1) echo 'checked'; ?> disabled>
+                                                    Working
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="WFH" value="0">
-                                                    <input type="checkbox" name="WFH" value="1" class="form-check-input"> Work From Home (WFH)
+                                                    <input type="checkbox" name="FIELD" value="1" class="form-check-input"
+                                                        <?php if ($result_occupationalhistory['FIELD'] == 1) echo 'checked'; ?> disabled>
+                                                    Field
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="BUSINESS" value="0">
-                                                    <input type="checkbox" name="BUSINESS" value="1" class="form-check-input"> Business
+                                                    <input type="checkbox" name="OFFICE" value="1" class="form-check-input"
+                                                        <?php if ($result_occupationalhistory['OFFICE'] == 1) echo 'checked'; ?> disabled>
+                                                    Office
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="WFH" value="1" class="form-check-input"
+                                                        <?php if ($result_occupationalhistory['WFH'] == 1) echo 'checked'; ?> disabled>
+                                                    Work From Home (WFH)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="STUDYING" value="0">
-                                                    <input type="checkbox" name="STUDYING" value="1" class="form-check-input"> Studying
+                                                    <input type="checkbox" name="BUSINESS" value="1" class="form-check-input"
+                                                        <?php if ($result_occupationalhistory['BUSINESS'] == 1) echo 'checked'; ?> disabled>
+                                                    Business
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" name="STUDYING" value="1" class="form-check-input"
+                                                        <?php if ($result_occupationalhistory['STUDYING'] == 1) echo 'checked'; ?> disabled>
+                                                    Studying
                                                 </div>
                                             </div>
                                         </div>
@@ -577,33 +544,27 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="HYPERTENSION" value="0">
                                                     <input type="checkbox" name="HYPERTENSION" value="1" class="form-check-input"> Hypertension
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="DIABETES" value="0">
                                                     <input type="checkbox" name="DIABETES" value="1" class="form-check-input"> Diabetes
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="CVD" value="0">
                                                     <input type="checkbox" name="CVD" value="1" class="form-check-input"> Cardiovascular Disease (CVD)
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="ASTHMA" value="0">
                                                     <input type="checkbox" name="ASTHMA" value="1" class="form-check-input"> Asthma
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="ALLERGIES" value="0">
                                                     <input type="checkbox" name="ALLERGIES" value="1" class="form-check-input"> Allergies
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="OTHERS" value="0">
                                                     <input type="checkbox" name="OTHERS" value="1" class="form-check-input"> Others
                                                 </div>
                                             </div>
@@ -629,22 +590,18 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                         <div class="row mt-3">
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="LAPTOP" value="0">
                                                     <input type="checkbox" name="LAPTOP" value="1" class="form-check-input"> Laptop
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="MOBILE" value="0">
                                                     <input type="checkbox" name="MOBILE" value="1" class="form-check-input"> Mobile
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-check">
-                                                    <input type="hidden" name="DESKTOP" value="0">
                                                     <input type="checkbox" name="DESKTOP" value="1" class="form-check-input"> Desktop
                                                 </div>
                                                 <div class="form-check">
-                                                    <input type="hidden" name="TELEVISION" value="0">
                                                     <input type="checkbox" name="TELEVISION" value="1" class="form-check-input"> Television
                                                 </div>
                                             </div>

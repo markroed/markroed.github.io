@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 23, 2025 at 08:44 AM
+-- Generation Time: May 29, 2025 at 07:36 AM
 -- Server version: 8.0.40
 -- PHP Version: 8.3.14
 
@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `chiefcomplaint`;
 CREATE TABLE IF NOT EXISTS `chiefcomplaint` (
   `chiefComplaintId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `BOV_FAR` int DEFAULT '0',
   `BOV_NEAR` int DEFAULT '0',
   `HEADACHE` int DEFAULT '0',
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `chiefcomplaint` (
 --
 
 INSERT INTO `chiefcomplaint` (`chiefComplaintId`, `patientId`, `date`, `BOV_FAR`, `BOV_NEAR`, `HEADACHE`, `DOUBLE_VISION`, `GLARING`, `ITCHY_EYES`, `REDNESS`, `LACRIMATION`, `DRY_EYE`) VALUES
-(1, 1, '2025-05-16', 0, 1, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 1, 0, 0, 0);
+(1, 1, '2025-05-16 00:00:00', 0, 1, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19 00:00:00', 0, 0, 0, 0, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ INSERT INTO `chiefcomplaint` (`chiefComplaintId`, `patientId`, `date`, `BOV_FAR`
 DROP TABLE IF EXISTS `diagnosis`;
 CREATE TABLE IF NOT EXISTS `diagnosis` (
   `diagnosisId` int NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL,
   `patientId` int NOT NULL,
   `diagnosisOD` varchar(255) DEFAULT NULL,
   `diagnosisOS` varchar(255) DEFAULT NULL,
@@ -94,8 +94,8 @@ CREATE TABLE IF NOT EXISTS `diagnosis` (
 --
 
 INSERT INTO `diagnosis` (`diagnosisId`, `date`, `patientId`, `diagnosisOD`, `diagnosisOS`) VALUES
-(1, '2025-05-16', 1, '3123', '31'),
-(2, '2025-05-19', 1, 'OD', '5');
+(1, '2025-05-16 00:00:00', 1, '3123', '31'),
+(2, '2025-05-19 00:00:00', 1, 'OD', '5');
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ DROP TABLE IF EXISTS `digitalhistory`;
 CREATE TABLE IF NOT EXISTS `digitalhistory` (
   `digitalHistoryId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `noOfHours` int DEFAULT NULL,
   `LAPTOP` int DEFAULT '0',
   `MOBILE` int DEFAULT '0',
@@ -122,8 +122,8 @@ CREATE TABLE IF NOT EXISTS `digitalhistory` (
 --
 
 INSERT INTO `digitalhistory` (`digitalHistoryId`, `patientId`, `date`, `noOfHours`, `LAPTOP`, `MOBILE`, `DESKTOP`, `TELEVISION`, `sleepHours`) VALUES
-(1, 1, '2025-05-16', 1, 1, 0, 0, 0, 321),
-(2, 1, '2025-05-19', 5, 1, 0, 0, 0, 5);
+(1, 1, '2025-05-16 00:00:00', 1, 1, 0, 0, 0, 321),
+(2, 1, '2025-05-19 00:00:00', 5, 1, 0, 0, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -135,7 +135,7 @@ DROP TABLE IF EXISTS `dominanteye`;
 CREATE TABLE IF NOT EXISTS `dominanteye` (
   `dominantEyeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `OD` int DEFAULT '0',
   `OS` int DEFAULT '0',
   PRIMARY KEY (`dominantEyeId`)
@@ -146,8 +146,8 @@ CREATE TABLE IF NOT EXISTS `dominanteye` (
 --
 
 INSERT INTO `dominanteye` (`dominantEyeId`, `patientId`, `date`, `OD`, `OS`) VALUES
-(1, 1, '2025-05-16', 5, 5),
-(2, 1, '2025-05-19', 0, 0);
+(1, 1, '2025-05-16 00:00:00', 5, 5),
+(2, 1, '2025-05-19 00:00:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -159,7 +159,7 @@ DROP TABLE IF EXISTS `finalprescriptions`;
 CREATE TABLE IF NOT EXISTS `finalprescriptions` (
   `prescriptionId` int NOT NULL AUTO_INCREMENT,
   `patientId` int NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL,
   `od` varchar(50) DEFAULT NULL,
   `odPh` varchar(50) DEFAULT NULL,
   `odVasc` varchar(50) DEFAULT NULL,
@@ -180,8 +180,8 @@ CREATE TABLE IF NOT EXISTS `finalprescriptions` (
 --
 
 INSERT INTO `finalprescriptions` (`prescriptionId`, `patientId`, `date`, `od`, `odPh`, `odVasc`, `odVacc`, `os`, `osVacc`, `osVasc`, `osPh`, `addFirst`, `addFirstNVA`, `addSecond`, `addSecondNVA`) VALUES
-(1, 1, '2025-05-16', '13', '131', '13', '3131', '312', '13', '123121', '313', '31', '31313', '3', '13123'),
-(2, 1, '2025-05-19', 'OD', '5', 'VAsc', 'Vacc', 'OS', '5', '5', '5', 'ADD', 'NVA', 'ADD2', '5');
+(1, 1, '2025-05-16 00:00:00', '13', '131', '13', '3131', '312', '13', '123121', '313', '31', '31313', '3', '13123'),
+(2, 1, '2025-05-19 00:00:00', 'OD', '5', 'VAsc', 'Vacc', 'OS', '5', '5', '5', 'ADD', 'NVA', 'ADD2', '5');
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,7 @@ DROP TABLE IF EXISTS `frameparameters`;
 CREATE TABLE IF NOT EXISTS `frameparameters` (
   `frameParameterId` int NOT NULL AUTO_INCREMENT,
   `patientId` int NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime DEFAULT NULL,
   `hor` varchar(255) DEFAULT NULL,
   `ver` varchar(255) DEFAULT NULL,
   `nbl` varchar(255) DEFAULT NULL,
@@ -209,8 +209,8 @@ CREATE TABLE IF NOT EXISTS `frameparameters` (
 --
 
 INSERT INTO `frameparameters` (`frameParameterId`, `patientId`, `date`, `hor`, `ver`, `nbl`, `fittingH`, `segmentH`, `effectiveDIA`, `monoBinoPD`) VALUES
-(1, 1, '2025-05-16', '31', '13', '312', '23', '22', '2', '321313'),
-(2, 1, '2025-05-19', 'HOR', 'VER', 'NBL', 'FITTING H', 'SEGMENT H', 'EFFECTIVE DIA', 'MONO/BINO PD');
+(1, 1, '2025-05-16 00:00:00', '31', '13', '312', '23', '22', '2', '321313'),
+(2, 1, '2025-05-19 00:00:00', 'HOR', 'VER', 'NBL', 'FITTING H', 'SEGMENT H', 'EFFECTIVE DIA', 'MONO/BINO PD');
 
 -- --------------------------------------------------------
 
@@ -222,7 +222,7 @@ DROP TABLE IF EXISTS `iop`;
 CREATE TABLE IF NOT EXISTS `iop` (
   `iopId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `OD` decimal(5,2) DEFAULT NULL,
   `OS` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`iopId`)
@@ -233,8 +233,8 @@ CREATE TABLE IF NOT EXISTS `iop` (
 --
 
 INSERT INTO `iop` (`iopId`, `patientId`, `date`, `OD`, `OS`) VALUES
-(1, 1, '2025-05-16', 31.00, 312.00),
-(2, 1, '2025-05-19', 0.00, 0.00);
+(1, 1, '2025-05-16 00:00:00', 31.00, 312.00),
+(2, 1, '2025-05-19 00:00:00', 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -246,7 +246,7 @@ DROP TABLE IF EXISTS `lensprice`;
 CREATE TABLE IF NOT EXISTS `lensprice` (
   `lensPriceId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `lensBrand` varchar(255) DEFAULT NULL,
   `lensPrice` int DEFAULT NULL,
   `contactLensPrice` int DEFAULT NULL,
@@ -259,8 +259,8 @@ CREATE TABLE IF NOT EXISTS `lensprice` (
 --
 
 INSERT INTO `lensprice` (`lensPriceId`, `patientId`, `date`, `lensBrand`, `lensPrice`, `contactLensPrice`, `totalAmount`) VALUES
-(1, 1, '2025-05-16', '313', 2, 12321, 231),
-(2, 1, '2025-05-19', 'Adidas', 100, 100, 200);
+(1, 1, '2025-05-16 00:00:00', '313', 2, 12321, 231),
+(2, 1, '2025-05-19 00:00:00', 'Adidas', 100, 100, 200);
 
 -- --------------------------------------------------------
 
@@ -272,7 +272,7 @@ DROP TABLE IF EXISTS `lenstype`;
 CREATE TABLE IF NOT EXISTS `lenstype` (
   `lensTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime DEFAULT NULL,
   `SV` int DEFAULT '0',
   `ANTI_RAD` int DEFAULT '0',
   `MC` int DEFAULT '0',
@@ -293,8 +293,8 @@ CREATE TABLE IF NOT EXISTS `lenstype` (
 --
 
 INSERT INTO `lenstype` (`lensTypeId`, `patientId`, `date`, `SV`, `ANTI_RAD`, `MC`, `KK`, `FT`, `PAL`, `DIGITAL`, `EYEZEN`, `PHOTO`, `TRANS`, `BLUE_LENS`, `TINT_COLORED`) VALUES
-(1, 1, '2025-05-16', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+(1, 1, '2025-05-16 00:00:00', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19 00:00:00', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -306,7 +306,7 @@ DROP TABLE IF EXISTS `medicalhistory`;
 CREATE TABLE IF NOT EXISTS `medicalhistory` (
   `medicalHistoryId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `HYPERTENSION` int DEFAULT '0',
   `DIABETES` int DEFAULT '0',
   `CVD` int DEFAULT '0',
@@ -321,8 +321,8 @@ CREATE TABLE IF NOT EXISTS `medicalhistory` (
 --
 
 INSERT INTO `medicalhistory` (`medicalHistoryId`, `patientId`, `date`, `HYPERTENSION`, `DIABETES`, `CVD`, `ASTHMA`, `ALLERGIES`, `OTHERS`) VALUES
-(1, 1, '2025-05-16', 1, 0, 0, 0, 0, 0),
-(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 1);
+(1, 1, '2025-05-16 00:00:00', 1, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19 00:00:00', 0, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -334,7 +334,7 @@ DROP TABLE IF EXISTS `monobinopd`;
 CREATE TABLE IF NOT EXISTS `monobinopd` (
   `monoBinoPDid` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `MONOBINO` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`monoBinoPDid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -344,8 +344,8 @@ CREATE TABLE IF NOT EXISTS `monobinopd` (
 --
 
 INSERT INTO `monobinopd` (`monoBinoPDid`, `patientId`, `date`, `MONOBINO`) VALUES
-(1, 1, '2025-05-16', 999.99),
-(2, 1, '2025-05-19', 0.00);
+(1, 1, '2025-05-16 00:00:00', 999.99),
+(2, 1, '2025-05-19 00:00:00', 0.00);
 
 -- --------------------------------------------------------
 
@@ -357,7 +357,7 @@ DROP TABLE IF EXISTS `npa`;
 CREATE TABLE IF NOT EXISTS `npa` (
   `npaId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `OD` decimal(5,2) DEFAULT NULL,
   `OS` decimal(5,2) DEFAULT NULL,
   `OU` decimal(5,2) DEFAULT NULL,
@@ -369,8 +369,8 @@ CREATE TABLE IF NOT EXISTS `npa` (
 --
 
 INSERT INTO `npa` (`npaId`, `patientId`, `date`, `OD`, `OS`, `OU`) VALUES
-(1, 1, '2025-05-16', 2.00, 2.00, 2.00),
-(2, 1, '2025-05-19', 0.00, 0.00, 0.00);
+(1, 1, '2025-05-16 00:00:00', 2.00, 2.00, 2.00),
+(2, 1, '2025-05-19 00:00:00', 0.00, 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -382,7 +382,7 @@ DROP TABLE IF EXISTS `npa_age`;
 CREATE TABLE IF NOT EXISTS `npa_age` (
   `npaAgeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `MIN` decimal(5,2) DEFAULT NULL,
   `AVE` decimal(5,2) DEFAULT NULL,
   `MAX` decimal(5,2) DEFAULT NULL,
@@ -394,8 +394,8 @@ CREATE TABLE IF NOT EXISTS `npa_age` (
 --
 
 INSERT INTO `npa_age` (`npaAgeId`, `patientId`, `date`, `MIN`, `AVE`, `MAX`) VALUES
-(1, 1, '2025-05-16', 123.00, 13.00, 13.00),
-(2, 1, '2025-05-19', 5.00, 5.00, 5.00);
+(1, 1, '2025-05-16 00:00:00', 123.00, 13.00, 13.00),
+(2, 1, '2025-05-19 00:00:00', 5.00, 5.00, 5.00);
 
 -- --------------------------------------------------------
 
@@ -407,7 +407,7 @@ DROP TABLE IF EXISTS `npc`;
 CREATE TABLE IF NOT EXISTS `npc` (
   `npcId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `BREAK` decimal(5,2) DEFAULT NULL,
   `RECOVERY` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`npcId`)
@@ -418,8 +418,8 @@ CREATE TABLE IF NOT EXISTS `npc` (
 --
 
 INSERT INTO `npc` (`npcId`, `patientId`, `date`, `BREAK`, `RECOVERY`) VALUES
-(1, 1, '2025-05-16', 999.99, 999.99),
-(2, 1, '2025-05-19', 0.00, 0.00);
+(1, 1, '2025-05-16 00:00:00', 999.99, 999.99),
+(2, 1, '2025-05-19 00:00:00', 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -431,7 +431,7 @@ DROP TABLE IF EXISTS `occupationalhistory`;
 CREATE TABLE IF NOT EXISTS `occupationalhistory` (
   `occupationalHistoryId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `NON_WORKING` int DEFAULT '0',
   `WORKING` int DEFAULT '0',
   `FIELD` int DEFAULT '0',
@@ -447,8 +447,8 @@ CREATE TABLE IF NOT EXISTS `occupationalhistory` (
 --
 
 INSERT INTO `occupationalhistory` (`occupationalHistoryId`, `patientId`, `date`, `NON_WORKING`, `WORKING`, `FIELD`, `OFFICE`, `WFH`, `BUSINESS`, `STUDYING`) VALUES
-(1, 1, '2025-05-16', 1, 0, 0, 0, 0, 0, 0),
-(2, 1, '2025-05-19', 1, 0, 0, 0, 0, 0, 0);
+(1, 1, '2025-05-16 00:00:00', 1, 0, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19 00:00:00', 1, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -460,7 +460,7 @@ DROP TABLE IF EXISTS `ocularhistory`;
 CREATE TABLE IF NOT EXISTS `ocularhistory` (
   `ocularHistoryId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `GLAUCOMA` int DEFAULT '0',
   `CATARACT` int DEFAULT '0',
   `RETINA` int DEFAULT '0',
@@ -475,8 +475,8 @@ CREATE TABLE IF NOT EXISTS `ocularhistory` (
 --
 
 INSERT INTO `ocularhistory` (`ocularHistoryId`, `patientId`, `date`, `GLAUCOMA`, `CATARACT`, `RETINA`, `MACULA`, `INJURIES`, `OTHERS`) VALUES
-(1, 1, '2025-05-16', 1, 1, 0, 0, 0, 0),
-(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 1);
+(1, 1, '2025-05-16 00:00:00', 1, 1, 0, 0, 0, 0),
+(2, 1, '2025-05-19 00:00:00', 0, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -488,7 +488,7 @@ DROP TABLE IF EXISTS `oldframetypes`;
 CREATE TABLE IF NOT EXISTS `oldframetypes` (
   `oldFrameTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`oldFrameTypeId`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -498,8 +498,8 @@ CREATE TABLE IF NOT EXISTS `oldframetypes` (
 --
 
 INSERT INTO `oldframetypes` (`oldFrameTypeId`, `patientId`, `date`, `value`) VALUES
-(1, 1, '2025-05-16', 'Plastic'),
-(2, 1, '2025-05-19', 'Rimless');
+(1, 1, '2025-05-16 00:00:00', 'Plastic'),
+(2, 1, '2025-05-19 00:00:00', 'Rimless');
 
 -- --------------------------------------------------------
 
@@ -511,7 +511,7 @@ DROP TABLE IF EXISTS `oldlenstype`;
 CREATE TABLE IF NOT EXISTS `oldlenstype` (
   `oldlensTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime DEFAULT NULL,
   `SV` int DEFAULT '0',
   `ANTI_RAD` int DEFAULT '0',
   `MC` int DEFAULT '0',
@@ -532,8 +532,8 @@ CREATE TABLE IF NOT EXISTS `oldlenstype` (
 --
 
 INSERT INTO `oldlenstype` (`oldlensTypeId`, `patientId`, `date`, `SV`, `ANTI_RAD`, `MC`, `KK`, `FT`, `PAL`, `DIGITAL`, `EYEZEN`, `PHOTO`, `TRANS`, `BLUE_LENS`, `TINT_COLORED`) VALUES
-(1, 1, '2025-05-16', 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
-(2, 1, '2025-05-19', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+(1, 1, '2025-05-16 00:00:00', 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0),
+(2, 1, '2025-05-19 00:00:00', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -544,7 +544,7 @@ INSERT INTO `oldlenstype` (`oldlensTypeId`, `patientId`, `date`, `SV`, `ANTI_RAD
 DROP TABLE IF EXISTS `oldrx`;
 CREATE TABLE IF NOT EXISTS `oldrx` (
   `oldRXId` int NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
+  `date` datetime DEFAULT NULL,
   `oldRXDate` date NOT NULL,
   `patientId` int NOT NULL,
   `oldOD` varchar(255) DEFAULT NULL,
@@ -561,8 +561,8 @@ CREATE TABLE IF NOT EXISTS `oldrx` (
 --
 
 INSERT INTO `oldrx` (`oldRXId`, `date`, `oldRXDate`, `patientId`, `oldOD`, `oldODVA`, `oldOS`, `oldOSVA`, `oldADD`, `oldADDVA`) VALUES
-(1, '2025-05-16', '2025-05-13', 1, '123', '123', '123', '131', '3131', '3123'),
-(2, '2025-05-19', '2025-05-12', 1, 'OD', 'VA', 'OS', 'VA', 'ADD', 'VA');
+(1, '2025-05-16 00:00:00', '2025-05-13', 1, '123', '123', '123', '131', '3131', '3123'),
+(2, '2025-05-19 00:00:00', '2025-05-12', 1, 'OD', 'VA', 'OS', 'VA', 'ADD', 'VA');
 
 -- --------------------------------------------------------
 
@@ -574,7 +574,7 @@ DROP TABLE IF EXISTS `patientcontactlenstypes`;
 CREATE TABLE IF NOT EXISTS `patientcontactlenstypes` (
   `patientContactLensTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`patientContactLensTypeId`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -584,8 +584,8 @@ CREATE TABLE IF NOT EXISTS `patientcontactlenstypes` (
 --
 
 INSERT INTO `patientcontactlenstypes` (`patientContactLensTypeId`, `patientId`, `date`, `value`) VALUES
-(1, 1, '2025-05-16', 'Conventional'),
-(2, 1, '2025-05-19', 'Colored');
+(1, 1, '2025-05-16 00:00:00', 'Conventional'),
+(2, 1, '2025-05-19 00:00:00', 'Colored');
 
 -- --------------------------------------------------------
 
@@ -597,7 +597,7 @@ DROP TABLE IF EXISTS `patientframetype`;
 CREATE TABLE IF NOT EXISTS `patientframetype` (
   `patientFrameTypeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`patientFrameTypeId`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -607,8 +607,8 @@ CREATE TABLE IF NOT EXISTS `patientframetype` (
 --
 
 INSERT INTO `patientframetype` (`patientFrameTypeId`, `patientId`, `date`, `value`) VALUES
-(1, 1, '2025-05-16', 'Plastic'),
-(2, 1, '2025-05-19', 'Rimless');
+(1, 1, '2025-05-16 00:00:00', 'Plastic'),
+(2, 1, '2025-05-19 00:00:00', 'Rimless');
 
 -- --------------------------------------------------------
 
@@ -645,7 +645,7 @@ DROP TABLE IF EXISTS `pupilsize`;
 CREATE TABLE IF NOT EXISTS `pupilsize` (
   `pupilSizeId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `OD` decimal(5,2) DEFAULT NULL,
   `OS` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`pupilSizeId`)
@@ -656,8 +656,8 @@ CREATE TABLE IF NOT EXISTS `pupilsize` (
 --
 
 INSERT INTO `pupilsize` (`pupilSizeId`, `patientId`, `date`, `OD`, `OS`) VALUES
-(1, 1, '2025-05-16', 213.00, 999.99),
-(2, 1, '2025-05-19', 0.00, 0.00);
+(1, 1, '2025-05-16 00:00:00', 213.00, 999.99),
+(2, 1, '2025-05-19 00:00:00', 0.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -668,7 +668,7 @@ INSERT INTO `pupilsize` (`pupilSizeId`, `patientId`, `date`, `OD`, `OS`) VALUES
 DROP TABLE IF EXISTS `retinoscopy`;
 CREATE TABLE IF NOT EXISTS `retinoscopy` (
   `retinoscopyId` int NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
+  `date` datetime DEFAULT NULL,
   `patientId` int NOT NULL,
   `retinoscopyOD` varchar(255) DEFAULT NULL,
   `retinoscopyOS` varchar(255) DEFAULT NULL,
@@ -680,8 +680,8 @@ CREATE TABLE IF NOT EXISTS `retinoscopy` (
 --
 
 INSERT INTO `retinoscopy` (`retinoscopyId`, `date`, `patientId`, `retinoscopyOD`, `retinoscopyOS`) VALUES
-(1, '2025-05-16', 1, '13', '21'),
-(2, '2025-05-19', 1, 'OD', '5');
+(1, '2025-05-16 00:00:00', 1, '13', '21'),
+(2, '2025-05-19 00:00:00', 1, 'OD', '5');
 
 -- --------------------------------------------------------
 
@@ -693,7 +693,7 @@ DROP TABLE IF EXISTS `slitlampexamination`;
 CREATE TABLE IF NOT EXISTS `slitlampexamination` (
   `slitLampExaminationId` int NOT NULL AUTO_INCREMENT,
   `patientId` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `LIDS_LEFT` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `LIDS_RIGHT` text,
   `LASHES_LEFT` text,
@@ -719,8 +719,8 @@ CREATE TABLE IF NOT EXISTS `slitlampexamination` (
 --
 
 INSERT INTO `slitlampexamination` (`slitLampExaminationId`, `patientId`, `date`, `LIDS_LEFT`, `LIDS_RIGHT`, `LASHES_LEFT`, `LASHES_RIGHT`, `CONJUNCTIVA_LEFT`, `CONJUNCTIVA_RIGHT`, `CORNEA_LEFT`, `CORNEA_RIGHT`, `IRIS_LEFT`, `IRIS_RIGHT`, `AC_LEFT`, `AC_RIGHT`, `LENS_LEFT`, `LENS_RIGHT`, `IOP_LEFT`, `IOP_RIGHT`, `CLINICAL_NOTES`) VALUES
-(1, 1, '2025-05-16', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '111'),
-(2, 1, '2025-05-19', 'Lids Left:', 'lids Right', 'Lashes Left', 'Lashes Right', 'Conjunctiva Left:', 'Conjunctiva Right:', 'c', '', '', '', '', '', '', '', '', '', '');
+(1, 1, '2025-05-16 00:00:00', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '111'),
+(2, 1, '2025-05-19 00:00:00', 'Lids Left:', 'lids Right', 'Lashes Left', 'Lashes Right', 'Conjunctiva Left:', 'Conjunctiva Right:', 'c', '', '', '', '', '', '', '', '', '', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

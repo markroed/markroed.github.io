@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 die("Error: Invalid or missing Patient ID.");
         }
         $patientId = $_POST['patientId']; // Get patient ID from the form
-        $date = $_POST["date"] ?? date("Y-m-d"); // Default to today's date if not provided
+        $date = isset($_POST["date"]) ? $_POST["date"] . " " . date("H:i:s") : date("Y-m-d H:i:s");
 
         // Insert into finalprescriptions table
         $query = "INSERT INTO finalprescriptions (patientId, date, od, odVasc, odPh, odVacc, os, osVasc, osPh, osVacc, addFirst, addFirstNVA, addSecond, addSecondNVA) 
