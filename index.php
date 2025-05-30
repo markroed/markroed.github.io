@@ -45,41 +45,61 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                         <!-- Content Row -->
                         <div class="row">
 
-                            <!-- Earnings (Monthly) Card Example -->
+                            <?php
+                            include("connection/connect.php"); // Make sure this file is included
+                            $clientQuery = mysqli_query($db, "SELECT COUNT(*) AS total_clients FROM patients");
+                            $clientRow = mysqli_fetch_assoc($clientQuery);
+                            $totalClients = $clientRow['total_clients'];
+
+                            $todayQuery = mysqli_query($db, "SELECT COUNT(DISTINCT patientId) AS today_clients FROM finalprescriptions WHERE DATE(date) = CURDATE()");
+                            $todayRow = mysqli_fetch_assoc($todayQuery);
+                            $todayClients = $todayRow['today_clients'];
+
+
+
+                            ?>
+
+                            <!-- Number of Clients -->
                             <div class="col-xl-3 col-md-6 mb-4">
                                 <div class="card border-left-primary shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                   Number of Clients (Total)</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">1,897</div>
+                                                    Number of Clients (Total)
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <?php echo $totalClients; ?>
+                                                </div>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                <i class="fas fa-users fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Earnings (Monthly) Card Example -->
+                            <!-- Patients Today -->
                             <div class="col-xl-3 col-md-6 mb-4">
                                 <div class="card border-left-success shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Number of Clients (Today)</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                                    Number of Clients (Today)
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <?php echo $todayClients; ?>
+                                                </div>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                                <i class="fas fa-user-check fa-2x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>  
 
                             <!-- Earnings (Monthly) Card Example -->
                             <div class="col-xl-3 col-md-6 mb-4">
@@ -133,11 +153,11 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
 
                         <!-- <div class="row"> -->
 
-                            <!-- Area Chart -->
-                            <!-- <div class="col-xl-8 col-lg-7">
+                        <!-- Area Chart -->
+                        <!-- <div class="col-xl-8 col-lg-7">
                                 <div class="card shadow mb-4"> -->
-                                    <!-- Card Header - Dropdown -->
-                                    <!-- <div
+                        <!-- Card Header - Dropdown -->
+                        <!-- <div
                                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                         <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                                         <div class="dropdown no-arrow">
@@ -155,8 +175,8 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                         </div>
                                     </div> -->
-                                    <!-- Card Body -->
-                                    <!-- <div class="card-body">
+                        <!-- Card Body -->
+                        <!-- <div class="card-body">
                                         <div class="chart-area">
                                             <canvas id="myAreaChart"></canvas>
                                         </div>
@@ -164,11 +184,11 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                 </div>
                             </div> -->
 
-                            <!-- Pie Chart -->
-                            <!-- <div class="col-xl-4 col-lg-5">
+                        <!-- Pie Chart -->
+                        <!-- <div class="col-xl-4 col-lg-5">
                                 <div class="card shadow mb-4"> -->
-                                    <!-- Card Header - Dropdown -->
-                                    <!-- <div
+                        <!-- Card Header - Dropdown -->
+                        <!-- <div
                                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                         <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
                                         <div class="dropdown no-arrow">
@@ -186,8 +206,8 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                                             </div>
                                         </div>
                                     </div> -->
-                                    <!-- Card Body -->
-                                    <!-- <div class="card-body">
+                        <!-- Card Body -->
+                        <!-- <div class="card-body">
                                         <div class="chart-pie pt-4 pb-2">
                                             <canvas id="myPieChart"></canvas>
                                         </div>
@@ -213,7 +233,7 @@ if (!isset($_SESSION['adminUsername']) || $_SESSION['adminUsername'] == '' || em
                             <!-- Content Column -->
                             <div class="col-lg-6 mb-4">
 
-        
+
 
                             </div>
                         </div>
